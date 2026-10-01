@@ -1,0 +1,375 @@
+﻿QUERY,PROMPT
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",Act as a data Engineer and Show the Current Volume Range per Product
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",Act as a data Engineer and  Please show the current count of accounts per product segment.
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",Show the latest number of accounts grouped by product segment description.
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",Could you list the total accounts by product segment overall?
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",Display the account count per product segment description.
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",Retrieve the count of accounts grouped by product segment.
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",Can you show the count of accounts per product segment?
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",Show the number of accounts grouped by product segment description.
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;", List the current account count by product segment.
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",Please retrieve the total accounts grouped by product segment description.
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",Get the count of accounts per product segment.
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",How many Products are there per Account
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",How many Products are there per Account for Date = 202412
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",What is the current Revenue Range for each Product 
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",Find the revenue Range for Each Product
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",Please show the total revenue summed by product segment and reporting period.
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",Get the sum of revenue total grouped by product segment description and reporting period key.
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",List the revenue total aggregated by product segment and reporting period.
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",Display the sum of revenuetotal for each product segment description and reporting period key.
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",Retrieve total revenue grouped by product segment and reporting period.
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",Can you show the summed revenue total by product segment description and reporting period key?
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",Show the total revenue amount grouped by product segment and reporting period key.
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",Please get the sum of revenue total per product segment description and reporting period.
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",List the aggregated revenue total by product segment and reporting period key.
+"select sum(revenuetotal), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.reportingperiodkey 
+group by productsegmentdescription, reportingperiodkey;",Display the total revenue summed by product segment description and reporting period key.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+where reportingperiod = 202412
+GROUP by month ;","Write a SQL query to retrieve the total product volume per month from the table l2_reporting_sch.forecast_predictive_product for the reporting period 202412. The query should select the month and the sum of productvolume, grouping the results by month."
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+where reportingperiod = 202412
+GROUP by month ;",Write a SQL query to calculate the total product volume for each month in the forecast_predictive_product table for the reporting period 202412.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+where reportingperiod = 202412
+GROUP by month ;",Generate a query that sums forecasted value of productvolume grouped by month for the reporting period December 2024.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+where reportingperiod = 202412
+GROUP by month ;",Create a SQL statement to retrieve the forecasted monthly aggregated product volumes for the specified reporting period 202412.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Show me the total product volume per month from the forecast predictive product data.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",How much product volume was forecasted each month across all reporting periods?
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Get the monthly sum of product volumes from the forecast data without any date filter.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Provide a monthly summary of product volumes forecasted across all periods.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Summarize the forecasted product volumes by month for all available data.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Report the total product volume per month without restricting to any specific reporting period.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Retrieve monthly aggregated product volume data from l2_reporting_sch.forecast_predictive_product .
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Write a grouped aggregation query on productvolume forecast by month.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Extract monthly sums of product volume from the forecast table without any date constraints.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",List months and their corresponding total forecasted product volumes.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Aggregate product volumes by month for the forecast data without any reporting period filter.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Group product volume sums by month for the entire forecast dataset.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",How to group product volume data by month and sum it for all available data?
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Write a query that groups product volumes by month and calculates their sum without filtering by date.
+"select month,sum(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Aggregate product volumes monthly for the entire dataset using SQL.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Write a SQL query to calculate the total product revenue for each month in the forecast_predictive_product table.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Generate a query that sums productrevenue grouped by month for all data.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Create a SQL statement to retrieve monthly aggregated product revenues without filtering by reporting period.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Show me the total product revenue per month from the forecast predictive product data.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",How much product revenue was forecasted each month across all reporting periods?
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Get the monthly sum of product revenues from the forecast data without any date filter.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Provide a monthly summary of product revenues forecasted across all periods.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;", Summarize the forecasted product revenues by month for all available data.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",Report the total product revenue per month without restricting to any specific reporting period.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;", Retrieve monthly aggregated product revenue data from l2_reporting_sch.forecast_predictive_product without filtering by reportingperiod.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;", Write a grouped aggregation query on productrevenue by month for the entire dataset.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;", Extract monthly sums of product revenue from the forecast table without any date constraints.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",How to group product revenue data by month and sum it for all available data?
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;", Write a query that groups product revenues by month and calculates their sum without filtering by date.
+"select month,sum(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;", Aggregate product revenues monthly for the entire dataset using SQL
+"select month,avg(productrevenue) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",
+"select month,avg(productvolume) from l2_reporting_sch.forecast_predictive_product
+GROUP by month ;",
+"select sum(interest), reportingperiodkey from l2_reporting_sch.factaccountsnapshot_final
+GROUP by reportingperiodkey;",Show me the total interest calculated for each reportingperiod
+"select count(accountid), previousdelinquencybucket from l2_reporting_sch.factaccountsnapshot_final fa
+left join l2_reporting_sch.dimdelinquency dimdel
+on dimdel.delinquencykey=fa.delinquencykey
+and dimdel.periodid=fa.reportingperiodkey 
+GROUP by previousdelinquencybucket;",Show me the count of accounts which were delinquent in previous cycle for each previous delinquency bucket category
+"select count(accountid), currentdelinquencybucket from l2_reporting_sch.factaccountsnapshot_final fa
+left join l2_reporting_sch.dimdelinquency dimdel
+on dimdel.delinquencykey=fa.delinquencykey
+and dimdel.periodid=fa.reportingperiodkey 
+GROUP by currentdelinquencybucket;",Show me the count of accounts which are delinquent in current cycle 
+"select sum(averagedailybalance),revenuedecilesegmentdescription  from l2_reporting_sch.factaccountsnapshot_final fa
+join l2_reporting_sch.dimdecile dd
+on dd.decilekey = fa.decilekey
+and dd.periodid = fa.reportingperiodkey
+group by revenuedecilesegmentdescription;",Show me the net average daily balance for each segment of revenue decile
+"select sum(interest),statename  from l2_reporting_sch.factaccountsnapshot_final fa
+join l2_reporting_sch.dimgeography dg
+on dg.geographykey = fa.geographykey
+and dg.periodid = fa.reportingperiodkey
+group by statename",Show me the net interest for each statename in US
+"select sum(interest),statename  from l2_reporting_sch.factaccountsnapshot_final fa
+join l2_reporting_sch.dimgeography dg
+on dg.geographykey = fa.geographykey
+and dg.periodid = fa.reportingperiodkey
+group by statename",Show me the net interest for each statename in US
+"select sum(interest),regionname  from l2_reporting_sch.factaccountsnapshot_final fa
+join l2_reporting_sch.dimgeography dg
+on dg.geographykey = fa.geographykey
+and dg.periodid = fa.reportingperiodkey
+group by regionname",Show me the net interest for each region name in US
+"select avg(interest),statename  from l2_reporting_sch.factaccountsnapshot_final fa
+join l2_reporting_sch.dimgeography dg
+on dg.geographykey = fa.geographykey
+and dg.periodid = fa.reportingperiodkey
+group by statename",Show me the average interest for each statename in US
+"select avg(interest),regionname  from l2_reporting_sch.factaccountsnapshot_final fa
+join l2_reporting_sch.dimgeography dg
+on dg.geographykey = fa.geographykey
+and dg.periodid = fa.reportingperiodkey
+group by regionname",Show me the average interest for each region name in US
+"select external_status_value,sum(averagedailybalancerevolving)  from l2_reporting_sch.factaccountsnapshot_final fa
+join l2_reporting_sch.dimexternalstatus de
+on de.externalstatuskey = fa.externalstatuskey
+and de.periodid = fa.reportingperiodkey
+group by external_status_value;",Calculate the net average daily balance revolving for each external status value
+"select external_status_value, count(accountid)
+from l2_reporting_sch.factaccountsnapshot_final fa
+join l2_reporting_sch.dimexternalstatus de
+on de.externalstatuskey = fa.externalstatuskey
+and de.periodid = fa.reportingperiodkey
+group by external_status_value;",Calculate the number of accounts/accountid/account for each value of external status
+"select count(accountid), productsegmentdescription from l2_reporting_sch.factaccountsnapshot_final fa
+INNER join l2_reporting_sch.dimproduct dp 
+on dp.productkey = fa.productkey
+and dp.periodid = fa.Reportingperiodkey
+group by productsegmentdescription;",Retrieve the count of accounts grouped by product segment.
+"SELECT dp.productkey, dp.productsegment, dp.productsegmentdescription, dp.product_type, dp.network, dp.subproduct, dp.remarks FROM dimproduct dp",show me all the available products 
+"SELECT REPORTINGPERIODKEY as Reporting_Period,   sum(interest),statename  
+from l2_reporting_sch.dimgeography dg
+LEFT JOIN l2_reporting_sch.factaccountsnapshot_final fa 
+on dg.geographykey = fa.geographykey
+and dg.periodid = fa.reportingperiodkey
+GROUP BY  REPORTINGPERIODKEY,    statename",for every state show me net interest
+"SELECT REPORTINGPERIODKEY as Reporting_Period,   dg.regionname AS Region, SUM(fa.creditlimit) AS Credit_Limit FROM  l2_reporting_sch.dimgeography dg JOIN l2_reporting_sch.factaccountsnapshot_final fa 
+ON fa.geographykey = dg.geographykey 
+AND fa.reportingperiodkey = dg.periodid 
+WHERE fa.reportingperiodkey = dg.periodid GROUP BY  REPORTINGPERIODKEY,    dg.regionname","Provide the total credit limit per region, labeled as Region and Credit_Limit."
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   fa.FILTERREPORTINGPERIOD as Reporting_Period,
+SUM(fa.creditlimit) AS Credit_Limit
+FROM l2_reporting_sch.factaccountsnapshot_final fa
+GROUP BY  FILTERREPORTINGPERIOD,    fa.reportingperiodkey
+ORDER BY fa.reportingperiodkey;","What is the total credit limit summed across all accounts, grouped by each reporting period?"
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   fa.FILTERREPORTINGPERIOD as Reporting_Period,
+SUM(fa.creditlimit) AS Credit_Limit
+FROM l2_reporting_sch.factaccountsnapshot_final fa
+WHERE fa.creditlimit >= 5000 AND fa.creditlimit < 10000
+GROUP BY  FILTERREPORTINGPERIOD,    fa.reportingperiodkey
+ORDER BY fa.reportingperiodkey;","Generate a report of total credit limits per period for accounts with credit limits $10,000 or higher."
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   SUM(fa.creditlimit) AS Credit_Limit, 
+ fa.monthsonbooks AS Months_on_Books 
+FROM l2_reporting_sch.factaccountsnapshot_final fa 
+GROUP BY  FILTERREPORTINGPERIOD,    fa.monthsonbooks 
+ORDER BY fa.monthsonbooks;","Generate a report of credit limit totals by months on books, which have more than 100 months on books"
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   dr.systemdescription AS Network, 
+SUM(fa.creditlimit) AS Credit_Limit 
+FROM l2_reporting_sch.dimrawproduct dr 
+JOIN l2_reporting_sch.factaccountsnapshot_final fa 
+ON fa.spakey = dr.spakey
+AND fa.reportingperiodkey = dr.periodid
+GROUP BY  FILTERREPORTINGPERIOD,    dr.systemdescription
+ORDER BY dr.systemdescription;",sum of credit limit by network
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   dr.systemdescription AS Network, 
+SUM(fa.creditlimit) AS Credit_Limit 
+FROM l2_reporting_sch.dimrawproduct dr 
+JOIN l2_reporting_sch.factaccountsnapshot_final fa 
+ON fa.spakey = dr.spakey
+AND fa.reportingperiodkey = dr.periodid
+GROUP BY  FILTERREPORTINGPERIOD,    dr.systemdescription
+ORDER BY dr.systemdescription;",sum of credit limit by network
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   dr.systemdescription AS Network, 
+SUM(fa.creditlimit) AS Credit_Limit 
+FROM l2_reporting_sch.dimrawproduct dr 
+JOIN l2_reporting_sch.factaccountsnapshot_final fa 
+ON fa.spakey = dr.spakey
+AND fa.reportingperiodkey = dr.periodid
+GROUP BY  FILTERREPORTINGPERIOD,    dr.systemdescription
+ORDER BY dr.systemdescription;",sum of credit limit by network
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   dr.systemdescription AS Network, 
+SUM(fa.creditlimit) AS Credit_Limit 
+FROM l2_reporting_sch.dimrawproduct dr 
+JOIN l2_reporting_sch.factaccountsnapshot_final fa 
+ON fa.spakey = dr.spakey
+AND fa.reportingperiodkey = dr.periodid
+GROUP BY  FILTERREPORTINGPERIOD,    dr.systemdescription
+ORDER BY dr.systemdescription;",sum of credit limit by network
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   fa.accountid AS Account_ID,
+       MAX(fa.creditlimit) AS Maximum_Credit_Limit
+FROM l2_reporting_sch.factaccountsnapshot_final fa
+WHERE fa.creditlimit IS NOT NULL 
+GROUP BY  FILTERREPORTINGPERIOD,    fa.accountid
+HAVING MAX(fa.creditlimit) = (
+  SELECT MAX(fa2.creditlimit)
+  FROM l2_reporting_sch.factaccountsnapshot_final fa2
+  WHERE fa2.creditlimit IS NOT NULL and fa2.reportingperiodkey = 202412
+)
+ORDER BY fa.accountid;",Show me the accounts having maximum/highest credit limit
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   creditlimit, count(fasf.accountid) as AccountCount from l2_reporting_sch.factaccountsnapshot_final as fasf GROUP BY  FILTERREPORTINGPERIOD,    fasf.creditlimit order by fasf.creditlimit;",show me the number of accounts having maximum credit limit
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   dg.regionname AS Region, AVG(fa.creditlimit) AS Avg_Credit_Limit FROM l2_reporting_sch.dimgeography dg LEFT JOIN l2_reporting_sch.factaccountsnapshot_final fa ON fa.geographykey = dg.geographykey AND fa.reportingperiodkey = dg.periodid GROUP BY  FILTERREPORTINGPERIOD,    dg.regionname",Show me the average credit limit for each region in US.
+"SELECT dp.productkey, dp.productsegment, dp.productsegmentdescription, dp.product_type, dp.network, dp.subproduct, dp.remarks FROM dimproduct dp",show me all products
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   dg.statename AS Region, MIN(fa.creditlimit) AS Min_Credit_Limit FROM l2_reporting_sch.dimgeography dg JOIN l2_reporting_sch.factaccountsnapshot_final fa ON fa.geographykey = dg.geographykey AND fa.reportingperiodkey = dg.periodid GROUP BY  FILTERREPORTINGPERIOD,    dg.statename;",Calculate minimum Credit limit segmented by the regions in US.
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   dg.regionname AS Region, MIN(fa.creditlimit) AS Min_Credit_Limit FROM l2_reporting_sch.dimgeography dg JOIN l2_reporting_sch.factaccountsnapshot_final fa ON fa.geographykey = dg.geographykey AND fa.reportingperiodkey = dg.periodid GROUP BY  FILTERREPORTINGPERIOD,    dg.regionname",Calculate lowest Credit limit segmented by the regions in US.
+"SELECT FILTERREPORTINGPERIOD as Reporting_Period,   des.external_status_value as External_Status, 
+sum(fa.creditlimit) as Credit_Limit 
+from l2_reporting_sch.factaccountsnapshot_final fa 
+LEFT join l2_reporting_sch.dimexternalstatus des 
+on des.externalstatuskey = fa.externalstatuskey 
+AND fa.reportingperiodkey = des.periodid
+GROUP BY  FILTERREPORTINGPERIOD,    des.external_status_value",calculate the sum of creditlimit for each external_status_value from dimexternalstatus
+"SELECT FILTERREPORTINGPERIOD as ""Reporting Period"",   fasf.retailapr, COUNT(*) as ""count of accounts"" from l2_reporting_sch.factaccountsnapshot_final as fasf GROUP BY  FILTERREPORTINGPERIOD,    fasf.retailapr order by fasf.retailapr",1. Show distribution of accounts by APR range.
+"SELECT FILTERREPORTINGPERIOD as ""Reporting Period"", RETAILAPR,
+COUNT(ACCOUNTID)
+FROM l2_reporting_sch.factaccountsnapshot_final FA 
+GROUP BY RETAILAPR, FILTERREPORTINGPERIOD;",1. Show distribution of accounts by APR range.
+"SELECT FILTERREPORTINGPERIOD as ""Reporting Period"",   des.external_status_value as ExternalStatus, count(fasf.accountid) as AccountCount from l2_reporting_sch.dimexternalstatus as des left join 
+l2_reporting_sch.factaccountsnapshot_final as fasf on des.externalstatuskey = fasf.externalstatuskey and des.periodid=fasf.reportingperiodkey GROUP BY  FILTERREPORTINGPERIOD,    des.external_status_value;",1. Show distribution of accounts by status.
+"SELECT FILTERREPORTINGPERIOD as ""Reporting Period"",   dr.riskscorethiscycledescription as RiskScore, count(fasf.accountid) as AccountCount from l2_reporting_sch.dimrisk as dr left join 
+l2_reporting_sch.factaccountsnapshot_final as fasf on dr.riskkey = fasf.riskkey and dr.periodid=fasf.reportingperiodkey GROUP BY  FILTERREPORTINGPERIOD,    dr.riskscorethiscycledescription;",Show distribution of accounts by risk score range.
+"SELECT
+  l.Risk_Category AS ""Product Tier"",
+  dd.month_name || ' ' || CAST(EXTRACT(YEAR FROM dd.Full_Date) AS VARCHAR) AS ""DATE"",
+  COUNT(DISTINCT d.Loan_Key) AS ""Total Loans"",
+  SUM(CASE WHEN r.Loan_Key IS NULL THEN 1 ELSE 0 END) AS ""Missed Repayments"",
+  ROUND(
+    100.0 * SUM(CASE WHEN r.Loan_Key IS NULL THEN 1 ELSE 0 END) / NULLIF(COUNT(DISTINCT d.Loan_Key), 0),
+    2
+  ) AS ""Missed Percentage""
+FROM l2_loans_sch.FACT_DISBURSEMENT d
+JOIN l2_loans_sch.DIM_LOAN_MASTER_2 l ON d.Loan_Key = l.Loan_Key
+JOIN l2_loans_sch.dim_date dd ON dd.date_key = d.date_key
+CROSS JOIN l2_loans_sch.business_date bd
+LEFT JOIN l2_loans_sch.FACT_REPAYMENT r 
+  ON d.Loan_Key = r.Loan_Key AND r.Is_First_Repayment = TRUE
+WHERE dd.Full_Date BETWEEN DATEADD(month, -6, TO_DATE(bd.bd_id::text, 'YYYYMMDD')) 
+                      AND TO_DATE(bd.bd_id::text, 'YYYYMMDD')
+GROUP BY 
+  l.Risk_Category, 
+  dd.month_name, 
+  EXTRACT(YEAR FROM dd.Full_Date)
+ORDER BY 
+  MIN(dd.Full_Date) ASC,
+  l.Risk_Category;","What is the percentage of new residential home loans that missed their first repayment in the last six months, broken down by core product tiers like Prime, Near Prime, and Specialist?"

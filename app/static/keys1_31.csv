@@ -1,0 +1,630 @@
+﻿Table Name,Field Name,DATA_TYPE,is Primary Key,is Foreign Key,reference table,reference column,Description
+DIMPRODUCT,PERIODID,NUMBER,YES,NO,,,"component Key Column for DimProduct table, PeriodID identifies the Date in the format YYYYMM"
+DIMPRODUCT,PRODUCTKEY,NUMBER,YES,NO,,,Component Key Column to uniquely identify each product in the dataset. Is used to Join with ProductKey in Fact Table.
+DIMPRODUCT,PRODUCTSEGMENT,VARCHAR,,,,,"Classifies products into distinct segments based on attributes such as type, usage, or target market, supporting targeted marketing and analysis."
+DIMPRODUCT,PRODUCTSEGMENTDESCRIPTION,VARCHAR,,,,,"Provides contextual names for the various product segment, denoting the criteria used to assign products to each segment."
+DIMPRODUCT,PRODUCT_TYPE,VARCHAR,,,,,"Specifies the type of product, for example, credit card, loan, or savings account, essential for understanding product characteristics and features."
+DIMPRODUCT,NETWORK,VARCHAR,,,,,"Identifies the payment network associated with the product, such as Visa or MasterCard, relevant for transaction processing."
+DIMPRODUCT,SUBPRODUCT,VARCHAR,,,,,"Defines a more granular classification within the main product category, offering additional specificity for each product."
+DIMPRODUCT,REMARKS,VARCHAR,,,,,"Contains supplementary notes or comments about the product, allowing inclusion of relevant information not captured in other fields."
+DIMPRODUCT,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded for each row in DImProduct
+DIMPRODUCT,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data for each row in DimProduct
+DIMOPENPERIOD,PERIODID,NUMBER,YES,NO,,,"Component Key Column for DimOpenPeriod table, PeriodID identifies the Date in the format YYYYMM"
+DIMOPENPERIOD,OPENPERIODKEY,NUMBER,YES,NO,,,Component Key Column to uniquely identify each OpenPeriod in the dataset. Is used to Join with OpenPeriodKey in Fact Table
+DIMOPENPERIOD,OPENYEARSEGMENT,NUMBER,,,,," Represents the classification of the open year for accounts, indicating the year in which accounts were opened. This field is important for analyzing account age and performance."
+DIMOPENPERIOD,OPENYEARSEGMENTDESCRIPTION,VARCHAR,,,,,"OPENYEARSEGMENTDESCRIPTION provides context for the open year segment, detailing the significance of the year classification."
+DIMOPENPERIOD,OPENMONTHSEGMENT,NUMBER,,,,,"Represents the classification of the open month for accounts, indicating the month in which accounts were opened. This field helps in analyzing monthly trends in account openings."
+DIMOPENPERIOD,OPENMONTHSEGMENTDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the open month segment, providing clarity on how accounts are categorized by month."
+DIMOPENPERIOD,OPENDECADES,VARCHAR,,,,," Represents the decade classification for accounts, indicating the decade in which accounts were opened. This field is useful for long-term trend analysis."
+DIMOPENPERIOD,ACTIVATIONFLAGSEGMENT,NUMBER,,,,,"Flag Column which Indicates whether an account has been activated, representing the status of the account in terms of usability. This field is important for understanding customer engagement."
+DIMOPENPERIOD,ACTIVATIONFLAGDESCRIPTION,VARCHAR,,,,,"Description for ACTIVATIONFLAGSEGMENT column that explains the criteria for the activation flag segment, providing context for account usability for each flag value."
+DIMOPENPERIOD,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded for each row in DimOpenPeriod table
+DIMOPENPERIOD,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data for each row DimOpenPeriod table
+DIMGEOGRAPHY,PERIODID,NUMBER,YES,NO,,,"Component Key Column for DimGeography table, PeriodID identifies the Date in the format YYYYMM"
+DIMGEOGRAPHY,GEOGRAPHYKEY,NUMBER,YES,NO,,,"Component Key Column to identify each combination of Statecode, RegionCode, CountryCode in the dataset. Is used to Join with GEOGRAPHYKEY in Fact Table"
+DIMGEOGRAPHY,STATECODE,VARCHAR,,,,, A code representing the state associated with a geography record. This field is important for regional analysis and understanding geographic distribution.
+DIMGEOGRAPHY,STATENAME,VARCHAR,,,,, The name of the state associated with a geography record. It provides context for the state code and is useful for reporting and analysis.
+DIMGEOGRAPHY,REGIONCODE,NUMBER,,,,, A code representing the region associated with a geography record. This field helps in categorizing data into broader geographic areas for analysis.
+DIMGEOGRAPHY,REGIONNAME,VARCHAR,,,,, The name of the region associated with a geography record. It provides clarity on the region code and is useful for reporting purposes.
+DIMGEOGRAPHY,COUNTRYCODE,NUMBER,,,,, A code representing the country associated with a geography record. This field is essential for international analysis and understanding global distribution.
+DIMGEOGRAPHY,COUNTRYNAME,VARCHAR,,,,, The name of the country associated with a geography record. It provides context for the country code and is useful for reporting and analysis.
+DIMGEOGRAPHY,DIVISION,VARCHAR,,,,, Represents the division classification within the geography record. This field helps in organizing geographic data into specific divisions for more detailed analysis.
+DIMGEOGRAPHY,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+FACTACCOUNTSNAPSHOT_FINAL,REPORTINGPERIODKEY,NUMBER,YES,NO,,REPORTINGPERIODKEY,ReportingPeriodKey in FactAccountSnapshot_Final Table is a component key column which identifies the Cycle Date(YYYYMM) and forms a Composite Key with other Key Columns in the  fact table.
+FACTACCOUNTSNAPSHOT_FINAL,FILTERREPORTINGPERIOD,,,,,,reporting period value in  - MON YYYY format
+FACTACCOUNTSNAPSHOT_FINAL,ACCOUNTID,NUMBER,YES,NO,,ACCOUNTID,Unique numbers identifing the account.
+FACTACCOUNTSNAPSHOT_FINAL,CUSTOMERID,NUMBER,YES,NO,,CUSTOMERID,Unique numbers identifying the Customer ID.
+FACTACCOUNTSNAPSHOT_FINAL,SPAKEY,NUMBER,NO,YES,DIMRAWPRODUCTMCC,SPAKEY,Foreign Key to Join DimSPA Table 
+FACTACCOUNTSNAPSHOT_FINAL,EXTERNALSTATUSKEY,NUMBER,NO,YES,DIMEXTERNALSTATUS,EXTERNALSTATUSKEY,ExternalStatusKey is Foreign Key to Join DimExternalStatus TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,ACCOUNTBEHAVIORKEY,NUMBER,NO,YES,DIMACCOUNTBEHAVIOR,ACCOUNTBEHAVIORKEY,ACCOUNTBEHAVIORKEY is Foreign Key to Join DimACCOUNTBEHAVIOR TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,BALANCEKEY,NUMBER,NO,YES,DIMBALANCE,BALANCEKEY,BALANCEKEY is Foreign Key to Join DimBalance TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,CREDITLIMITINFORMATIONKEY,NUMBER,NO,YES,DIMCREDITLIMITINFORMATION,CREDITLIMITINFORMATIONKEY,CREDITLIMITINFORMATIONKEY is Foreign Key to Join DimCREDITLIMITINFORMATION TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,DECILEKEY,NUMBER,NO,YES,DIMDECILE,DECILEKEY,DECILEKEY is Foreign Key to Join DimDECILE TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,NEWACCOUNTKEY,NUMBER,NO,YES,DIMNEWACCOUNT,NEWACCOUNTKEY,NEWACCOUNTKEY is Foreign Key to Join DimNEWACCOUNT TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,DELINQUENCYKEY,NUMBER,NO,YES,DIMDELINQUENCY,DELINQUENCYKEY,DELINQUENCYKEY is Foreign Key to Join DimDELINQUENCY TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,FEEKEY,NUMBER,NO,YES,DIMFEEINFORMATION,FEEKEY,FEEKEY is Foreign Key to Join DimFEE TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,GEOGRAPHYKEY,NUMBER,NO,YES,DIMGEOGRAPHY,GEOGRAPHYKEY,GEOGRAPHYKEY is Foreign Key to Join DimGeography TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,MONTHSONBOOKSKEY,NUMBER,NO,YES,DIMMONTHSONBOOKS,MONTHSONBOOKSKEY,MONTHSONBOOKSKEY is Foreign Key to Join DimMONTHSONBOOKS TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,ORIGINATIONCHARACTERISTICSKEY,NUMBER,NO,YES,DIMORIGINATIONCHARACTERISTICS,ORIGINATIONCHARACTERISTICSKEY,ORIGINATIONCHARACTERISTICSKEY is Foreign Key to Join DimORIGINATIONCHARACTERISTICS TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,PAYMENTBEHAVIORKEY,NUMBER,NO,YES,DIMPAYMENTBEHAVIOR,PAYMENTBEHAVIORKEY,PAYMENTBEHAVIORKEY is Foreign Key to Join DimPAYMENTBEHAVIOR TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,PRICINGKEY,NUMBER,NO,YES,DIMPRICING_CR_INTERESTTYPE,PRICINGKEY,PRICINGKEY is Foreign Key to Join DimPricing TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,PRODUCTKEY,NUMBER,NO,YES,DIMPRODUCT,PRODUCTKEY,PRODUCTKEY is Foreign Key to Join DimExternalStatus TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,PURCHASEBEHAVIORKEY,NUMBER,NO,YES,DIMPURCHASEBEHAVIOR,PURCHASEBEHAVIORKEY,PURCHASEBEHAVIORKEY is Foreign Key to Join DimPURCHASEBEHAVIOR TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,REPRICINGKEY,NUMBER,NO,YES,DIMREPRICINGINFORMATION,REPRICINGKEY,REPRICINGKEY is Foreign Key to Join DimREPRICING TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,RISKKEY,NUMBER,NO,YES,DIMRISK,RISKKEY,RISKKEY is Foreign Key to Join DimRISK TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,STATUSKEY,NUMBER,NO,YES,DIMSTATUS,STATUSKEY,STATUSKEY is Foreign Key to Join DimStatus TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,MONTHENDDELINQUENCYKEY,NUMBER,NO,YES,DIMMONTHENDDELINQUENCY,MONTHENDDELINQUENCYKEY,MONTHENDDELINQUENCYKEY is Foreign Key to Join DimMONTHENDDELINQUENCY TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,OPENPERIODKEY,NUMBER,NO,YES,DIMOPENPERIOD,OPENPERIODKEY,OPENPERIODKEY is Foreign Key to Join DimOpenPeriod TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,ORIGINALCREDITLIMITINFORMATIONKEY,NUMBER,NO,YES,DIMORIGINALCREDITLIMITINFORMATION,ORIGINALCREDITLIMITINFORMATIONKEY,ORIGINALCREDITLIMITINFORMATIONKEY is Foreign Key to Join DIMORIGINALCREDITLIMITINFORMATION TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,CHARGEOFFKEY,NUMBER,NO,YES,DIMCHARGEOFF,CHARGEOFFKEY,CHARGEOFFKEY is Foreign Key to Join DimCHARGEOFF TABLE.
+FACTACCOUNTSNAPSHOT_FINAL,ADBWEIGHTEDRETAILAPR,NUMBER,,,,,"Account-weighted average retail (merchant APR, where the retail APR of each account is weighted by the number of months that the account was open or closed and Average Daily Balance with a balance; the average retail APR is calculated as follows: ∑ [(Retail APR for each account * AMGF] / (Average Number of open accounts * Average Daily Balance all accounts"
+FACTACCOUNTSNAPSHOT_FINAL,ADBWEIGHTEDRISKSCORETHISCYCLE,NUMBER,,,,,"The account-weighted risk score for the current cycle, calculated using each account's Average Daily Balance (ADB to reflect the overall risk exposure."
+FACTACCOUNTSNAPSHOT_FINAL,AVERAGEDAILYBALANCE,NUMBER,,,,,"Average Daily Balance is calculated using the beginning balance and the weighted detailed transaction activity (e.g. purchaes, payments, reverals as follows:
+Balance Average Daily +  ∑      (Transaction Amount * ((Cycle End Date - Transaction Post Date+1/Numbers of Days in cycle                                            
+                                            All Transactions  
+Average Daily Balance is only calculated for months in which the account is open or closed with a balance; otherwise; the ADB equals to zero. "
+FACTACCOUNTSNAPSHOT_FINAL,AVERAGEDAILYBALANCEREVOLVING,NUMBER,,,,,"Average Daily BalanceRevolving is calculated using the beginning balance and the weighted detailed transaction activity (e.g. purchaes, payments, reverals as follows:
+Balance Revolving  +  ∑      (Transaction Amount * ((Cycle End Date - Transaction Post Date+1/Numbers of Days in cycle                                            
+                                            All Transactions  
+Average Daily Balance is only calculated for months in which the account is open or closed with a balance; otherwise; the ADB equals to zero. "
+FACTACCOUNTSNAPSHOT_FINAL,AVERAGEDAILYBALANCETRANSACTING,NUMBER,,,,,"Average Daily BalanceTransacting is calculated using the beginning balance and the weighted detailed transaction activity (e.g. purchaes, payments, reverals as follows:
+ BalanceTransacting  +  ∑      (Transaction Amount * ((Cycle End Date - Transaction Post Date+1/Numbers of Days in cycle                                            
+                                            All Transactions  
+Average Daily BalanceTransacting is only calculated for months in which the account is open or closed with a balance; otherwise; the ADB equals to zero. "
+FACTACCOUNTSNAPSHOT_FINAL,AVERAGEDAILYBALANCEVALIDRISKSCORETHISCYCLE,NUMBER,,,,,"Average Daily BalanceAverageDaily is calculated using the beginning balance and the weighted detailed transaction activity (e.g. purchaes, payments, reverals as follows:
+ BalanceAverageDaily  +  ∑      (Transaction Amount * ((Cycle End Date - Transaction Post Date+1/Numbers of Days in cycle                                            
+                                            All Transactions  
+Average Daily BalanceTransacting is only calculated for Accounts with Valid Risk Score this Cycle ie... 150 to 950."
+FACTACCOUNTSNAPSHOT_FINAL,BALANCEREVOLVING,NUMBER,,,,,The total dollar amount that an account revolved during the cycle  at each price point on the account level. This amount is capped at the ADB.
+FACTACCOUNTSNAPSHOT_FINAL,BEGINNINGBALANCE,NUMBER,,,,,"The account balance at the start of a specified period, before any transactions or adjustments are made."
+FACTACCOUNTSNAPSHOT_FINAL,CASHADVANCECOUNT,NUMBER,,,,,Count of cash advances at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,CASHADVANCEREVERSALAMOUNT,NUMBER,,,,,Total cash advance reversals at the end of the cycle.
+FACTACCOUNTSNAPSHOT_FINAL,CASHADVANCEVOLUME,NUMBER,,,,,Total cash advance amount at end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,CREDITLIMIT,NUMBER,,,,,Total credit limit of open accounts
+FACTACCOUNTSNAPSHOT_FINAL,AUGMENTFLAG,NUMBER,,,,,"A flag indicating whether additional or supplemental data has been applied to a record, typically used to denote enhanced or modified information."
+FACTACCOUNTSNAPSHOT_FINAL,CREDITLIMITDECREASE,NUMBER,,,,,Count of accounts with credit limit Decrease
+FACTACCOUNTSNAPSHOT_FINAL,CREDITLIMITINCREASE,NUMBER,,,,,Count of accounts with credit limit increase
+FACTACCOUNTSNAPSHOT_FINAL,CREDITLIMITVALIDRISKSCORETHISCYCLE,NUMBER,,,,,Credit Limit of Accounts which have Valid Risk Score this Cycle.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCE,NUMBER,,,,,Total cycle ending balance of open accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCE1CPDACCOUNT,NUMBER,,,,,Balance Ending Amount of Accounts with 1 Cycle Past Due.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCE2CPDACCOUNT,NUMBER,,,,,Balance Ending Amount of Accounts with 2 Cycle Past Due.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCE3CPDACCOUNT,NUMBER,,,,,Balance Ending Amount of Accounts with 3 Cycle Past Due.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCE4CPDACCOUNT,NUMBER,,,,,Balance Ending Amount of Accounts with 4 Cycle Past Due.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCE5CPDACCOUNT,NUMBER,,,,,Balance Ending Amount of Accounts with 5 Cycle Past Due.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCE6CPDACCOUNT,NUMBER,,,,,Balance Ending Amount of Accounts with 6 Cycle Past Due.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCE7CPDORCOACCOUNT,NUMBER,,,,,Balance Ending Amount of Accounts with 7 Cycle Past Due.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCEAPRDECREASEFLAG,NUMBER,,,,,Balance Ending of Accounts with a APR Decrease.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCEAPRINCREASEFLAG,NUMBER,,,,,Balance Ending of Accounts with a APR Increase.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCECLD,NUMBER,,,,,Balance Ending of Accounts with Credit Limit Decrease.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCECLI,NUMBER,,,,,Balance Ending of Accounts with Credit Limit Increase.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCECURRENTACCOUNT,NUMBER,,,,,Balance Ending of Current Accounts.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCEDELIQUENTACCOUNT,NUMBER,,,,,Balance Ending Amount of Delinquent Accounts.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCEMAKINGMINPAY,NUMBER,,,,,Balance Ending of Accounts making minimum payments.
+FACTACCOUNTSNAPSHOT_FINAL,ENDINGBALANCEPAIDINFULL,NUMBER,,,,,Balance Ending of Accounts with Balance paid in Full.
+FACTACCOUNTSNAPSHOT_FINAL,FEEANNUALAMOUNT,NUMBER,,,,,Total annual fee amount of Open Accounts at the end of the cycle.
+FACTACCOUNTSNAPSHOT_FINAL,FEEANNUALWAIVERAMOUNT,NUMBER,,,,,"Annual fee waivers are identified based on transaction codes and transaction descriptions provided by each issuer. Although annual fees are amortized over the first twelve months of account life, annual fee waivers are recognized in full during the month in which they are posted. The average annual fee waivers for the quarter is calculated as:"
+FACTACCOUNTSNAPSHOT_FINAL,FEEANNUALAMORTIZEDAMOUNT,NUMBER,,,,,Total Net Annual Amortized Amount.
+FACTACCOUNTSNAPSHOT_FINAL,FEENONANNUALNETAMOUNT,NUMBER,,,,,Total Non Annual Waiver Amount.
+FACTACCOUNTSNAPSHOT_FINAL,FEENONANNUALWAIVERAMOUNT,NUMBER,,,,,Total Non Annual Waiver Amount.
+FACTACCOUNTSNAPSHOT_FINAL,FEEBALANCETRANSFERAMOUNT,NUMBER,,,,,"Balance transfer fee is the amount of balance transfer fees assessed per account. For each account, balance transfer fees are identified from the issuer’s transaction data based on transaction codes and textual transaction descriptions. The average amount of balance transfer fees per account is then calculated as follows: ∑ (balance transfer fees per account/(average number of accounts all accounts"
+FACTACCOUNTSNAPSHOT_FINAL,FEEBALANCETRANSFERWAIVERAMOUNT,NUMBER,,,,,"Balance transfer waiver amount is the amount of balance transfer waiver amount assessed per account. For each account, balance transfer waiver fees are identified from the issuer’s transaction data based on transaction codes and textual transaction descriptions. The average amount of balance transfer waiver fees per account is then calculated as follows: ∑ (balance transfer waiver fees per account/(average number of open accounts all accounts"
+FACTACCOUNTSNAPSHOT_FINAL,FEECASHADVANCEAMOUNT,NUMBER,,,,,"Cash advance fee is the amount of cash advance fees assessed per account. For each account, cash advance fees are identified from the issuer’s transaction data based on transaction codes and textual transaction descriptions. The average amount of cash advance fees per account is then calculated as follows: ∑ (cash advance fees per account/(average number of open accounts  all accounts       "
+FACTACCOUNTSNAPSHOT_FINAL,FEECASHADVANCEWAIVERAMOUNT,NUMBER,,,,,"Cash advance waiver fee is the amount of cash advance waiver fees assessed per account. For each account, cash advance waiver fees are identified from the issuer’s transaction data based on transaction codes and textual transaction descriptions. The average amount of cash advance waiver fees per account is then calculated as follows:             ∑ (cash advance waiver fees per account/(average number of open accounts  all accounts       "
+FACTACCOUNTSNAPSHOT_FINAL,FEELATEAMOUNT,NUMBER,,,,,"Late fee is the amount of late payment fees assessed per account. For each account, late payment fees are identified from the issuer’s transaction data based on transaction codes and textual transaction descriptions. The average amount of late payment fees per account is then calculated as follows: ∑ (late payment fees per account/(average number of open accounts all accounts        "
+FACTACCOUNTSNAPSHOT_FINAL,FEELATEWAIVERAMOUNT,NUMBER,,,,,"Late waiver fee is the amount of late waiver fees assessed per account. For each account, late waiver fees are identified from the issuer’s transaction data based on transaction codes and textual transaction descriptions. The average amount of late waiver fees per account is then calculated as follows: ∑ (late waiver fees per account/(average number of accounts all accounts        "
+FACTACCOUNTSNAPSHOT_FINAL,FEENSFAMOUNT,NUMBER,,,,,"NSF fee is the amount of NSF fees assessed per account. For each account, NSF fees are identified from the issuer’s transaction data based on transaction codes and textual transaction descriptions. The average amount of NSF fees per account is then calculated as follows: ∑ (NSF fees per account/(average number of accounts all accounts"
+FACTACCOUNTSNAPSHOT_FINAL,FEENSFWAIVERAMOUNT,NUMBER,,,,,"NSF waiver fee is the amount of NSF waiver fees assessed per account. For each account, NSF waiver fees are identified from the issuer’s transaction data based on transaction codes and textual transaction descriptions. The average amount of NSF waiver fees per account is then calculated as follows: ∑ (NSF waiver fees per account/(average number of accounts all accounts"
+FACTACCOUNTSNAPSHOT_FINAL,FEEOTHERAMOUNT,NUMBER,,,,,"Other fees is the other fees (other than annual, late, over limit, cash advance, and balance transfer assessed per account . Other fees are identified from each issuer’s transaction data based on transaction codes and textual transaction descriptions. The average other fees per account for a portfolio is calculated as follows: ∑ (other fees for each account/(average number of open accounts all accounts"
+FACTACCOUNTSNAPSHOT_FINAL,FEEOTHERWAIVERAMOUNT,NUMBER,,,,,Other waiver fees is the other waiver fees assessed per account. Other waiver fees are identified from each issuer’s transaction data based on transaction codes and textual transaction descriptions. The average other waiver fees per account for a portfolio is calculated as follows: ∑ (other waiver fees for each account/(average number of accounts all accounts
+FACTACCOUNTSNAPSHOT_FINAL,FEEOVERLIMITAMOUNT,NUMBER,,,,,Over limit fee is the amount of over limit fees assessed per account. Over limit fees are identified from each issuer’s transaction data based on transaction codes and textual transaction descriptions. The average over limit fees per account for a portfolio is calculated as follows: ∑ (over limit fees for each account/(average number of open accounts all accounts
+FACTACCOUNTSNAPSHOT_FINAL,FEEOVERLIMITWAIVERAMOUNT,NUMBER,,,,,Over limit waiver fee is the amount of over limit waiver fees assessed per account during the quarter. Over limit waiver fees are identified from each issuer’s transaction data based on transaction codes and textual transaction descriptions. The average over limit waiver fees per account for a portfolio is calculated as follows: ∑ (over limit waiver fees for each account/(average number of accounts all accounts
+FACTACCOUNTSNAPSHOT_FINAL,FEETOTALAMOUNT,NUMBER,,,,,Total fee amount at the end of the cycle.
+FACTACCOUNTSNAPSHOT_FINAL,FLAG1CPDACCOUNT,NUMBER,,,,,Accounts Flagged with 1 Cycle past due.
+FACTACCOUNTSNAPSHOT_FINAL,FLAG2CPDACCOUNT,NUMBER,,,,,Accounts Flagged with 2 cycles past due .
+FACTACCOUNTSNAPSHOT_FINAL,FLAG3CPDACCOUNT,NUMBER,,,,,Accounts Flagged with 3 Cycle past due.
+FACTACCOUNTSNAPSHOT_FINAL,FLAG4CPDACCOUNT,NUMBER,,,,,Accounts Flagged with 4 Cycle past due.
+FACTACCOUNTSNAPSHOT_FINAL,FLAG5CPDACCOUNT,NUMBER,,,,,Accounts Flagged with 5 Cycle past due.
+FACTACCOUNTSNAPSHOT_FINAL,FLAG6CPDACCOUNT,NUMBER,,,,,Accounts Flagged with 6 Cycle past due.
+FACTACCOUNTSNAPSHOT_FINAL,FLAG7CPDORCOACCOUNT,NUMBER,,,,,Accounts Flagged with 7 Cycle past due.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGACTIVE,NUMBER,,,,,Flag for accounts which are active this month.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGAPRDECREASE,NUMBER,,,,,Flag for Accounts with APR Decrease
+FACTACCOUNTSNAPSHOT_FINAL,FLAGAPRINCREASE,NUMBER,,,,,Flag for Accounts with APR Increase.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGBALANCEACTIVE,NUMBER,,,,,Flag for Accounts with Balance
+FACTACCOUNTSNAPSHOT_FINAL,FLAGBALANCETRANSFERACTIVE,NUMBER,,,,,Flag for Accounts which had a balance transfer this month.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGBEGINNINGBALANCEMORETHANZERO,NUMBER,,,,,Flag for Accounts which had Balance Beginning more than zero this month.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGCASHADVANCEACTIVE,NUMBER,,,,,Indicates if an account is cash advance active in the current period
+FACTACCOUNTSNAPSHOT_FINAL,FLAGCHARGEOFFACCOUNT,NUMBER,,,,,Flag for Accounts which got Charged off this Month.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGCHARGEOFFCURRENTPERIODACCOUNT,NUMBER,,,,,Flag for Accounts which got Charged off this Month.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGCLD,NUMBER,,,,,Flag for accounts with credit limit decrease
+FACTACCOUNTSNAPSHOT_FINAL,FLAGCLI,NUMBER,,,,,Flag for accounts with credit limit increase
+FACTACCOUNTSNAPSHOT_FINAL,FLAGCLOSEDACCOUNT,NUMBER,,,,,Flag for closed accounts.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGCURRENTACCOUNT,NUMBER,,,,,Flag for current Accounts.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGPURCHASEACTIVE,NUMBER,,,,,"A flag indicating whether the purchase activity is currently active for an account, typically used to denote whether recent transactions are occurring or if the account is actively being used for purchases."
+FACTACCOUNTSNAPSHOT_FINAL,FLAGDEBITACTIVE,NUMBER,,,,,Flag for Accounts with Debit Active.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGDELIQUENTACCOUNT,NUMBER,,,,,Flag for Accounts with Delinquency.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGFEEANNUAL,NUMBER,,,,,Flag for Accounts with Annual Fee.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGFEEBALANCETRANSFER,NUMBER,,,,,Flag for Accounts with Balance Fee Transfer.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGFEECASHADVANCE,NUMBER,,,,,"An indicator showing a charge imposed by a credit card company when a card holder takes out a loan of liquid funds againsts their credit limit. Cash advance fee is the amount of cash advance fees assessed per account. For each account, cash advance fees are identified from the issuer’s transaction data based on transaction codes and textual transaction descriptions. The average amount of cash advance fees per account is then calculated as follows: ∑ (cash advance fees per account/(average number of accounts all accounts"
+FACTACCOUNTSNAPSHOT_FINAL,FLAGFEELATE,NUMBER,,,,,Flag for Accounts with Late Fee.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGFEENSF,NUMBER,,,,,Flag for Accounts with NSF Fee
+FACTACCOUNTSNAPSHOT_FINAL,FLAGFEEOVERLIMIT,NUMBER,,,,,Flag for Accounts with Fee Over Limit.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGMAKINGMINPAY,NUMBER,,,,,Flag for Accounts making minimum payment .
+FACTACCOUNTSNAPSHOT_FINAL,FLAGMINIMUMPAYMENTDUE,NUMBER,,,,,Flag for Accounts with Minimum Payment Due.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGOCL,NUMBER,,,,,Flag For Accounts that have surpassed their credit limit with a transaction.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGPAYMENTACTIVE,NUMBER,,,,,Flag for Accounts with Payment Active this month.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGPREVIOUSMINIMUMPAYMENTDUE,NUMBER,,,,,Flag for Accounts with previous Minimum Payment Due.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGREVOLVING,NUMBER,,,,,Flag for Accounts with Balance Revolving.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGTRANSACTING,NUMBER,,,,,Flag For Accounts with a transaction Amount.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGVALIDCREDITLIMIT,NUMBER,,,,,Flag for Accounts with a valid Credit limit Amount.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGVALIDRISKSCORETHISCYCLE,NUMBER,,,,,Flag for Accounts with Valid Risk Score this cycle.
+FACTACCOUNTSNAPSHOT_FINAL,FLAGVALIDORIGINATIONRISKSCORE,NUMBER,,,,,Flag for Accounts with Valid Origination Risk Score.
+FACTACCOUNTSNAPSHOT_FINAL,LINEWEIGHTEDRISKSCORETHISCYCLE,NUMBER,,,,,Credit Line Weighted Current Risk Score of open accounts
+FACTACCOUNTSNAPSHOT_FINAL,MONTHSONBOOKS,NUMBER,,,,,Sum to Total Months on Books of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,ORIGINATIONRISKSCORE,NUMBER,,,,,Risk Score at the origination of Account.
+FACTACCOUNTSNAPSHOT_FINAL,PAYMENTMINIMUMDUEAMOUNT,NUMBER,,,,,Minimum Payment Due Amount at the end of the month.
+FACTACCOUNTSNAPSHOT_FINAL,PAYMENTNETAMOUNT,NUMBER,,,,,Total net payment amount at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,PROMOAMOUNT,NUMBER,,,,,Balance transfer Amount Volume.
+FACTACCOUNTSNAPSHOT_FINAL,PROMOCOUNT,NUMBER,,,,,Count of Accounts with Balance Transfer.
+FACTACCOUNTSNAPSHOT_FINAL,PROMOREVERSALAMOUNT,NUMBER,,,,,Total Amount of Balance Transfer Reversal Amount.
+FACTACCOUNTSNAPSHOT_FINAL,PURCHASEAMOUNT,NUMBER,,,,,Total Purchase Amount.
+FACTACCOUNTSNAPSHOT_FINAL,PURCHASECOUNT,NUMBER,,,,,Total Count of Accounts with Purchase Amount.
+FACTACCOUNTSNAPSHOT_FINAL,PURCHASEREVERSALAMOUNT,NUMBER,,,,,Total Amount of Purchase Reversal Amount.
+FACTACCOUNTSNAPSHOT_FINAL,RETAILAPR,NUMBER,,,,,"Account-weighted average retail (merchant APR, where the retail APR of each account is weighted by the number of months that the account was open or closed with a balance; the average retail APR is calculated as follows: ∑ [(Retail APR for each account * AMGF] / (Average Number of open accounts all accounts"
+FACTACCOUNTSNAPSHOT_FINAL,CASHAPR,NUMBER,,,,,"Account-weighted average cash APR, where the cash APR of each account is weighted by the number of months that the account was open or closed with a balance; the average cash APR is calculated as follows: ∑ [(Cash APR for each account * AMGF] / (Average Number of open accounts all accounts"
+FACTACCOUNTSNAPSHOT_FINAL,RISKSCORETHISCYCLE,NUMBER,,,,,Credit Risk Scores of Account in this cycle.
+FACTACCOUNTSNAPSHOT_FINAL,RETAILAPRDECREASE,NUMBER,,,,,Amount of Retail APR Decrease
+FACTACCOUNTSNAPSHOT_FINAL,RETAILAPRINCREASE,NUMBER,,,,,Amount of Retail APR Increase.
+FACTACCOUNTSNAPSHOT_FINAL,ALLOCATEDEQUITY,NUMBER,,,,,Allocated Euity is calculated as: [[(Average Daily Balance * (Equity Allocation Rate] + [(Credit Line - Average daily balance*(Loan equivalent factor*(Equity allocation rate]]/12
+FACTACCOUNTSNAPSHOT_FINAL,CAPITALCHARGE,NUMBER,,,,,"Capital charge is the dollar amount of return demanded by shareholders in exchange for allocated equity. Allocated Euity is calculated as: [[(Average Daily Balance * (Equity Allocation Rate] + [(Credit Line - Average daily balance*(Loan equivalent factor*(Equity allocation rate]]/12 where the equity allocation factor and loan equivalent factor are parameters supplied by issuer. Once the allocated equity has been calculated for each month, the monthly capital charges are calculated as follows: (Allocated Equity * (Hurdle Rate where the hurdle rate is supplied by  issuer."
+FACTACCOUNTSNAPSHOT_FINAL,CHARGEOFFTOTAL,NUMBER,,,,,Total Charge Off of open accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,CONTRAEXPENSERECOVERIES,NUMBER,,,,,Total Contra Expense Recoveries of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,CONTRAREVENUEPARTNERSHIP,NUMBER,,,,,Total contra revenue partnership of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,CONTRAREVENUEREWARDS,NUMBER,,,,,Total contra revenue rewards of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,COSTOFFUNDS,NUMBER,,,,,"The cost of funding a credit card asset, calculated by multiplying the average daily balance for the cycle by the appropriate cost of funds rate. For each month, the cost of funds expense for an account is: (AverageDaily Balance * (Cost of Funds Rate"
+FACTACCOUNTSNAPSHOT_FINAL,CREDITCOST,NUMBER,,,,,Credit costs are the expense of maintaining funding sources for the unused credit line of each account. Credit costs are based on two profit parameter values: the loan equivalence factor and the line of credit rate. There are two steps in calculating credit costs: 1. The unused line of each account is multiplied by a “loan equivalence factor”  - this factor represents the probability of the customer drawing down the unused line. The resulting dollar value is referred to as the “loan equivalent” of the unused line. 2. The unused line’s loan equivalent is multiplied by a line of credit rate
+FACTACCOUNTSNAPSHOT_FINAL,EQUITYCREDIT,NUMBER,,,,,Equity credit for each account is calculated by multiplying the equity credit rate by the equity allocated to the account. Equity is allocated to each account based on the account’s average daily balance and equity allocation factor. The equity can be used to partially fund the balance of each account – this equity credit can therefore be thought of as an offset to the cost of funds. The dollar amount of equity credit assigned to each account is calculated for each month of the quarter as follows: Equity Credit ($ = [(Average daily balance * (Equity Allocation Factor * (Equity Credit Rate]/12 where the value for the equity credit rate is supplied by issuer.
+FACTACCOUNTSNAPSHOT_FINAL,EXPENSECOLLECTIONS,NUMBER,,,,,Total collections expenses of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,EXPENSECUSTOMERSERVICE,NUMBER,,,,,Total customer service expenses of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,EXPENSEFRAUD,NUMBER,,,,,Total fraud expenses of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,EXPENSEMARKETING,NUMBER,,,,,Total marketing expenses of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,EXPENSEOPERATING,NUMBER,,,,,Total operating expenses of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,EXPENSEORIGINATIONAMORTIZED,NUMBER,,,,,Total origination amortized expenses of Open Accounts at the end of the cycle. It is the sum of total amortized origination expense for all accounts divided by the average number of accounts.  ∑ [(unit origination cost for each account/12*(number of months the account id open and less than 12 months old] / (average number of open accounts  all accounts                       
+FACTACCOUNTSNAPSHOT_FINAL,EXPENSEOTHER,NUMBER,,,,,Total other expenses of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,EXPENSEOVERHEAD,NUMBER,,,,,Total overhead expenses of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,EXPENSESYSTEMS,NUMBER,,,,,Total system expenses of Open Accounts at the end of the cycle
+FACTACCOUNTSNAPSHOT_FINAL,EXPENSETOTAL,NUMBER,,,,,"Average total expenses – sum of cost of funds, credit costs, product costs, amortized origination expense, customer service, collection costs, loan loss provision, and other expenses. The average total expenses per account is calculated as follows:  ∑  (quarterly total expenses for each account / (Average number of open accounts  all accounts                         "
+FACTACCOUNTSNAPSHOT_FINAL,INTERCHANGE,NUMBER,,,,,"Total Interchange of open accounts at the end of the cycle. For each account, net interchange income is calculated by multiplying every merchant purchase, return, and adjustment that posted during the cycle by the appropriate interchange rate. Purchases, returns, and adjustments are identified from the issuer’s transaction data based on transaction codes and textual transaction descriptions; interchange rate values are provided by  issuer."
+FACTACCOUNTSNAPSHOT_FINAL,INTEREST,NUMBER,,,,,"Total Interest of Open Accounts at the end of the cycle. Net finance charges assessed during the cycle for each account based on each account’s transaction data, including finance charges from purchases, cash advances, and balance transfers. Finance charges are identified from the issuer’s transaction data based on transaction codes and textual transaction descriptions."
+FACTACCOUNTSNAPSHOT_FINAL,REVENUENETCOMPLEMENTARYPRODUCTINSURANCE,NUMBER,,,,,Total Net Revenue from Complimentary Insurance Products.
+FACTACCOUNTSNAPSHOT_FINAL,REVENUENETCOMPLEMENTARYPRODUCTOTHER,NUMBER,,,,,Total Net Revenue from Complimentary other Products.
+FACTACCOUNTSNAPSHOT_FINAL,LLPAMOUNT,NUMBER,,,,,Loan Loss Provision Amount.
+FACTACCOUNTSNAPSHOT_FINAL,TAX,NUMBER,,,,,Total Tax Amount.
+FACTACCOUNTSNAPSHOT_FINAL,NETINCOMEAMOUNT,NUMBER,,,,,"Pretax income less taxes; average net income per account for the quarter. For each account, net income is determined monthly; the quarterly net income is the sum of net income for each of the three months of the quarter. The average net income per account is calculated as follows:  ∑  net income for each account / (average number of open accounts  all accounts         "
+FACTACCOUNTSNAPSHOT_FINAL,NIACCAMOUNT,NUMBER,,,,,"Net income after capital charge (NIACC is a risk- and capital-adjusted measurement of profitability. A positive value indicates that the account is generating shareholder value, while a negative value indicates that the account is destroying shareholder value. NIACC is calculated monthly for each account: Monthly NIACC = (Monthly Net Income - (Monthly Capital Charge"
+FACTACCOUNTSNAPSHOT_FINAL,REVENUEOTHER,NUMBER,,,,,"Other Revenue includes complementary product revenue and other revenue attributable to the credit card business excluding interest, interchange, and fee revenue. For most issuers, complementary product revenue is identified from transaction data, while other revenue items are based on the profit parameters supplied by each issuer. The average other revenue per account for a portfolio is calculated as follows:  ∑ (quarterly other revenue for each account / (average number of open accounts  all accounts"
+FACTACCOUNTSNAPSHOT_FINAL,REVENUETOTAL,NUMBER,,,,,"Total Revenue of Open Accounts at the end of the cycle. It is the sum of interest, interchange, annual fee, other fee, fee waivers, equity credit, and other revenue. The average total revenue per account is calculated as follows:  ∑  (quarterly total revenue for each account / (Average number of open accounts  all accounts                                                                                                                                                                                                                                                                                                                "
+FACTACCOUNTSNAPSHOT_FINAL,FLAGOPEN,NUMBER,,,,,Accounts with Flag Open.
+FACTACCOUNTSNAPSHOT_FINAL,MONTHENDINGBALANCE,NUMBER,,,,,Total Balance Month end.
+FACTACCOUNTSNAPSHOT_FINAL,TOTALNUMBEROFAUTHUSERS,NUMBER,,,,,Total Number of Authorized users.
+FACTACCOUNTSNAPSHOT_FINAL,TOTALNUMBEROFCARDSISSUED,NUMBER,,,,,Total Number of cards issued this month.
+FACTACCOUNTSNAPSHOT_FINAL,PROFITSEGMENTKEY,NUMBER,,,,,"A unique identifier used to classify or track different profit segments within a dataset, enabling detailed analysis and reporting of profitability across various segments."
+FACTACCOUNTSNAPSHOT_FINAL,ROLEOFCARDSEGMENTKEY,NUMBER,,,,,Role of Card Segment is a scheme that categorizes customers into one of eleven segments based on purchase volume patterns; the segmentation is based on a cluster analysis that groups customers with similar purchase behavior across MCC SIC categories. The segmentation is useful for profiling customers based on the different roles that consumers assign to the credit cards in their wallets. Role of card segments include majority MCC related categories: 1.Traditional Retail 2.Gas 3.Mail Order 4.Quasi Cash 5.Specialty Retail 6.Services 7.Everything 8.Groceries 9.Restaurant 10.Travel & Entertainment 11.Non-transactor
+FACTACCOUNTSNAPSHOT_FINAL,WALLETKEY,NUMBER,,,,,"A unique identifier used to reference specific digital or physical wallets, facilitating the management and tracking of wallet-related transactions and information."
+FACTACCOUNTSNAPSHOT_FINAL,ACTIVATIONFLAGATOPENMONTHKEY,NUMBER,,,,,Activation Flag at Open Month.
+FACTACCOUNTSNAPSHOT_FINAL,JOINTACCOUNTFLAGKEY,NUMBER,,,,,Indicates Accounts is solely held by customer or with additional Joint Customers. Jointly Held Solo Missing/Unknown
+FACTACCOUNTSNAPSHOT_FINAL,BTFLAG,NUMBER,,,,,Balance Transfer Flag.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_EXPENSEORIGINATIONAMORTIZED,NUMBER,,,,,Amortized expense for origination during the cycle.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_FEECONVENIENCECHECKAMOUNT,NUMBER,,,,,Amount of fees for convenience checks.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_FEECONVENIENCECHECKCOUNT,NUMBER,,,,,Count of convenience check fees.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_FEECONVENIENCECHECKWAIVERAMOUNT,NUMBER,,,,,Waived amount of fees for convenience checks.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_FEEFOREIGNCURRENCYWAIVERAMOUNT,NUMBER,,,,,Waived foreign currency fee amount.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_FEEOVERLIMITCOUNT,NUMBER,,,,,Count of over-limit fees assessed.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_FEEPROMOWAIVERAMOUNT,NUMBER,,,,,Waived promotional fee amount.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CASHADVANCEATMCOUNT,NUMBER,,,,,Waived promotional fee amount.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CASHADVANCEATMREVERSALAMOUNT,NUMBER,,,,,Amount of reversals for cash advances made through ATMs.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CASHADVANCEODPAMOUNT,NUMBER,,,,,Amount of cash advances made with overdraft protection.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CASHADVANCEODPCOUNT,NUMBER,,,,,Number of cash advances made with overdraft protection.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CASHADVANCEODPREVERSALAMOUNT,NUMBER,,,,,Amount of reversals for cash advances with overdraft protection.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CASHADVANCEOTCAMOUNT,NUMBER,,,,,Amount of cash advances made via over-the-counter transactions.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CASHADVANCEOTCCOUNT,NUMBER,,,,,Number of over-the-counter cash advances.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_GASCOUNT,NUMBER,,,,,Number of gas-related transactions.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_GROCERYCOUNT,NUMBER,,,,,Number of grocery-related transactions.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_INTERCHANGE,NUMBER,,,,,Interchange fees collected or paid.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_LLPRATE,NUMBER,,,,,Loan Loss Provision (LLP rate applied to the account.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_MAILORDERAMOUNT,NUMBER,,,,,Amount of mail order transactions.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_INTERESTADJUSTED,NUMBER,,,,,Adjusted interest amount for the cycle.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_INTERESTCASH,NUMBER,,,,,Cash interest amount assessed during the cycle.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_INTERESTMERCHANT,NUMBER,,,,,Interest amount charged to merchants
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_INTERESTPROMO,NUMBER,,,,,Promotional interest amount assessed.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_NIACCLESSORIGINATIONAMOUNT,NUMBER,,,,,Net income amount after accounting charges and origination fees.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_REVENUENETCOMPLEMENTARYPRODUCTINSURANCE,NUMBER,,,,,Net revenue from complementary product insurance.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_ACC_REVENUENETCOMPLEMENTARYPRODUCTOTHER,NUMBER,,,,,Net revenue from other complementary products.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_APRMERCHANT,NUMBER,,,,,"Annual Percentage Rate (APR for merchant transactions, expressed as a decimal"
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_APRMERCHANTDELTA,NUMBER,,,,,"Change in Annual Percentage Rate (APR for merchant transactions, expressed as a decimal."
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CASHADVANCEATMAMOUNT,NUMBER,,,,,Amount of cash advances made through ATMs.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CASHADVANCEOTCREVERSALAMOUNT,NUMBER,,,,,Amount of reversals for over-the-counter cash advances.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CASHADVANCEREVERSALAMOUNT,NUMBER,,,,,Total amount of reversals for cash advances.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CONTRAREVENUECOMPLEMENTARYPRODUCTINSURANCE,NUMBER,,,,,Contra revenue amount for complementary product insurance.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CONTRAREVENUECOMPLEMENTARYPRODUCTOTHER,NUMBER,,,,,Contra revenue amount for other complementary products.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CONVENIENCECHECKAMOUNT,NUMBER,,,,,Amount of fees related to convenience checks.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CONVENIENCECHECKCOUNT,NUMBER,,,,,Number of convenience check fees assessed.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CONVENIENCECHECKREVERSALAMOUNT,NUMBER,,,,,Amount of reversals for convenience check fees.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_CREDITLIMITTOTALDELTA,NUMBER,,,,,Change in total credit limit during the cycle.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_PURCHASEADJUSTMENTAMOUNT,NUMBER,,,,,Amount of purchase adjustments made during the cycle.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_PURCHASEAMOUNT,NUMBER,,,,,Total purchase amount for the account.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_QUASICASHAMOUNT,NUMBER,,,,,Amount of quasi-cash transactions.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_RESTAURANTAMOUNT,NUMBER,,,,,Amount of restaurant-related transactions.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_REVENUEOTHER,NUMBER,,,,,Other revenue generated during the cycle.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_SERVICESAMOUNT,NUMBER,,,,,Amount of service-related transactions.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_SPECIALTYRETAILAMOUNT,NUMBER,,,,,Amount of specialty retail transactions.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_TRADITIONALRETAILAMOUNT,NUMBER,,,,,Amount of traditional retail transactions.
+FACTACCOUNTSNAPSHOT_FINAL,CYC_XXX_TRAVELENTERTAINMENTAMOUNT,NUMBER,,,,,Amount of travel and entertainment-related transactions.
+FACTACCOUNTSNAPSHOT_FINAL,APPLEPAY,NUMBER,,,,,APPLEPAY
+FACTACCOUNTSNAPSHOT_FINAL,CHIPCARDPAY,NUMBER,,,,,"A flag or indicator representing payments made using a chip-enabled card, commonly used to track transactions processed via EMV chip technology."
+FACTACCOUNTSNAPSHOT_FINAL,OTHERMOBILEDEVICESPAY,NUMBER,,,,,"A flag or indicator representing payments made using non-traditional mobile devices, such as smartwatches or other connected devices, aside from smartphones."
+FACTACCOUNTSNAPSHOT_FINAL,MOBILEACTIVATEDFLAG,NUMBER,,,,,A flag (TEXT datatype that indicates an accounts has ever been linked to a mobile wallet It is to flag on the transaction table indicating which transactions were conducted through a mobile wallet.
+FACTACCOUNTSNAPSHOT_FINAL,NONMOBILEACTIVATEDFLAG,NUMBER,,,,,A flag (TEXT datatype that indicates an accounts has ever not been linked to a mobile wallet It is to flag on the transaction table indicating which transactions were not conducted through a mobile wallet.
+FACTACCOUNTSNAPSHOT_FINAL,UNASSIGNED_PAYMENTS,NUMBER,,,,,"Payments that have been received but not yet allocated to a specific account, transaction, or category, awaiting further assignment or classification."
+FACTACCOUNTSNAPSHOT_FINAL,APPLEPURCHASEVOLUME,NUMBER,,,,,The total dollar amount of mobile wallet purchases for an account within that reporting period but specifically through Apple mobile wallet
+FACTACCOUNTSNAPSHOT_FINAL,APPLEPURCHASEREVERSALVOLUME,NUMBER,,,,,The total dollar amount of mobile wallet purchases for an account within that reporting period  if any reversal of payment took place but specifically through Apple mobile wallet
+FACTACCOUNTSNAPSHOT_FINAL,MOBILEPURCHASEVOLUME,NUMBER,,,,,"The total dollar amount of mobile wallet purchases for an account within that reporting period  through mobile wallet - Apple, Samsung or Google"
+FACTACCOUNTSNAPSHOT_FINAL,MOBILEPURCHASEREVERSALVOLUME,NUMBER,,,,,"The total dollar amount of mobile wallet purchases for an account within that reporting period  if any reversal of payment took place through mobile wallet - Apple, Samsung or Google"
+FACTACCOUNTSNAPSHOT_FINAL,NONMOBILEPURCHASEVOLUME,NUMBER,,,,,"The total dollar amount of mobile wallet purchases for an account within that reporting period not transacted through mobile wallet - Apple, Samsung or Google"
+FACTACCOUNTSNAPSHOT_FINAL,NONMOBILEPURCHASEREVERSALVOLUME,NUMBER,,,,,"The total dollar amount of mobile wallet purchases for an account within that reporting period not transacted through mobile wallet - Apple, Samsung or Google but if any reversal of payment has taken place "
+FACTACCOUNTSNAPSHOT_FINAL,OTHERMOBILEPURCHASEVOLUME,NUMBER,,,,,"The total dollar amount of mobile wallet purchases for an account within that reporting period  not transacted through mobile wallet - Apple, Samsung or Google but other mobile wallets purchases came in the transaction file as Unknown paymnet description"
+FACTACCOUNTSNAPSHOT_FINAL,OTHERMOBILEPURCHASEREVERSALVOLUME,NUMBER,,,,,"The total dollar amount of mobile wallet purchases for an account within that reporting period  not transacted through mobile wallet - Apple, Samsung or Google but other mobile wallets purchases came in the transaction file as Unknown paymnet description and if any reversal of payment has taken place "
+FACTACCOUNTSNAPSHOT_FINAL,SAMSUNGPAY,NUMBER,,,,,"A flag or indicator representing payments made using Samsung Pay, tracking transactions processed via this mobile payment platform."
+FACTACCOUNTSNAPSHOT_FINAL,SAMSUNGPURCHASEVOLUME,NUMBER,,,,,The total dollar amount of mobile wallet purchases for an account within that reporting period but specifically through Samsung mobile wallet
+FACTACCOUNTSNAPSHOT_FINAL,SAMSUNGPURCHASEREVERSALVOLUME,NUMBER,,,,,The total dollar amount of mobile wallet purchases for an account within that reporting period  if any reversal of payment took place but specifically through Samsung mobile wallet
+FACTACCOUNTSNAPSHOT_FINAL,GOOGLEPAY,NUMBER,,,,,"A flag or indicator representing payments made using Google Pay, tracking transactions processed through this mobile payment service."
+FACTACCOUNTSNAPSHOT_FINAL,GOOGLEPURCHASEVOLUME,NUMBER,,,,,The total dollar amount of mobile wallet purchases for an account within that reporting period but specifically through Google Purchases mobile wallet
+FACTACCOUNTSNAPSHOT_FINAL,GOOGLEPURCHASEREVERSALVOLUME,NUMBER,,,,,The total dollar amount of mobile wallet purchases for an account within that reporting period  if any reversal of payment took place but specifically through Google mobile wallet
+FACTACCOUNTSNAPSHOT_FINAL,CHD_MISCELLANEOUS_FIELD_6,TEXT,,,,,Bureau score field as per Penfed 's logic (this field is specifically used to store by banks own data field
+FACTACCOUNTSNAPSHOT_FINAL,PAYMATIX_STATUS,TEXT,,,,,Account Status provided by PenFed Charge-off                                                                                   Closed with Zero balance                                                         Open
+FACTACCOUNTSNAPSHOT_FINAL,UPC8PRODUCTKEY,NUMBER,,,,,"A unique identifier that represents an 8-digit Universal Product Code (UPC, used to track and manage specific products within a dataset or inventory system."
+FACTACCOUNTSNAPSHOT_FINAL,UPC9AFFINITYKEY,NUMBER,,,,,"A unique identifier that represents a 9-digit Universal Product Code (UPC associated with affinity or loyalty programs, used to track and manage product-specific affinities within a dataset."
+FACTACCOUNTSNAPSHOT_FINAL,CHD_MISC_13,TEXT,,,,,"A miscellaneous or custom data field used to store additional information or details that do not fit into predefined categories, specifically labeled as the 13th miscellaneous data point in the dataset."
+FACTACCOUNTSNAPSHOT_FINAL,LST_MNT_EXTERNAL_STATUS,NUMBER,,,,,"A field that tracks the most recent update or modification to the external status of an account or record, reflecting the latest status as recorded by an external system or process."
+FACTACCOUNTSNAPSHOT_FINAL,VOLUNTARY_ATTRITION,NUMBER,,,,,"The rate or number of accounts closed by customers voluntarily, often used to track customer churn and retention trends."
+FACTACCOUNTSNAPSHOT_FINAL,INVOLUNTARY_ATTRITION,NUMBER,,,,,"The rate or number of accounts closed by the issuer or financial institution, typically due to non-payment, fraud, or other policy violations."
+FACTACCOUNTSNAPSHOT_FINAL,PREVIOUSPERIODOPEN,NUMBER,,,,,"The status or count of accounts that remained open during the previous reporting period, used to track account activity over time."
+FACTACCOUNTSNAPSHOT_FINAL,ORIGINATIONCHANNELKEY,NUMBER,,,,,"A unique identifier used to reference the specific channel through which an account or transaction was originated, such as online, in-branch, or via a partner."
+FACTACCOUNTSNAPSHOT_FINAL,newfraudscore,NUMERIC,,,,,"Fraud score for the account, indicating the level of fraud risk based on recent activities, used for real-time fraud detection and prevention strategies."
+FACTACCOUNTSNAPSHOT_FINAL,age,NUMERIC,,,,,"Age of the customer or account in years, providing demographic insight for targeted marketing and risk profiling."
+FACTACCOUNTSNAPSHOT_FINAL,chargeoffbalance,NUMERIC,,,,,"Balance amount charged off as uncollectible, essential for loss provisioning and financial reporting on bad debts."
+FACTACCOUNTSNAPSHOT_FINAL,paymentduedate,TIMESTAMP WITHOUT TIME ZONE,,,,,"Date when the payment is due, critical for billing cycles and delinquency tracking."
+FACTACCOUNTSNAPSHOT_FINAL,balancecash,NUMERIC,,,,,"Cash balance available in the account, used for liquidity analysis and cash flow management."
+FACTACCOUNTSNAPSHOT_FINAL,external_status,CHARACTER VARYING,,,,,"Status of the account from an external system, facilitating integration and status synchronization."
+FACTACCOUNTSNAPSHOT_FINAL,flagvip,CHARACTER VARYING,,,,,"Flag indicating VIP status for the customer, for prioritized service and exclusive offers."
+FACTACCOUNTSNAPSHOT_FINAL,close_date,TIMESTAMP WITHOUT TIME ZONE,,,,,"Date when the account was closed, used for account lifecycle tracking and historical analysis."
+FACTACCOUNTSNAPSHOT_FINAL,asset,NUMERIC,,,,,"Total assets associated with the account, for net worth calculations and financial health assessment."
+FACTACCOUNTSNAPSHOT_FINAL,creditlimit_utilizationrate,NUMERIC,,,,,"Rate of credit limit utilization, indicating how much of the limit is used, key for credit risk and borrowing behavior analysis."
+FACTACCOUNTSNAPSHOT_FINAL,dso,NUMERIC,,,,,"Days sales outstanding, measuring the average number of days taken to collect payment, for cash flow and efficiency metrics."
+FACTACCOUNTSNAPSHOT_FINAL,dti,NUMERIC,,,,,"Debt-to-income ratio, assessing the customer's debt relative to income, crucial for lending eligibility and risk evaluation."
+FACTACCOUNTSNAPSHOT_FINAL,dti_recommendation,CHARACTER VARYING,,,,,"Recommendation based on debt-to-income ratio, providing guidance on credit decisions and financial advice."
+FACTACCOUNTSNAPSHOT_FINAL,banking_relationship_in_months,CHARACTER VARYING,,,,,"Duration of the banking relationship in months, used to gauge customer loyalty and tailor retention strategies."
+FACTACCOUNTSNAPSHOT_FINAL,banking_relationship_advice,CHARACTER VARYING,,,,,"Advice related to the banking relationship, offering insights or suggestions for improving customer engagement."
+FACTACCOUNTSNAPSHOT_FINAL,currentdelinquencybucket,CHARACTER VARYING,,,,,"Bucket or category for current delinquency status, for segmented risk assessment and reporting."
+FACTACCOUNTSNAPSHOT_FINAL,previousdelinquencybucket,CHARACTER VARYING,,,,,"Bucket for previous delinquency status, enabling trend analysis of payment behaviors over time."
+FACTACCOUNTSNAPSHOT_FINAL,cycleendingbalance,NUMERIC,,,,,"Balance at the end of the billing cycle, for cycle-specific financial summaries."
+FACTACCOUNTSNAPSHOT_FINAL,retention_forecast,NUMERIC,,,,,"Forecasted retention rate, predicting customer loyalty and informing retention campaigns."
+FACTACCOUNTSNAPSHOT_FINAL,cust_gained_forecast,NUMERIC,,,,,"Forecast of customers gained, for projecting growth and acquisition success."
+FACTACCOUNTSNAPSHOT_FINAL,cust_lost_forecast,NUMERIC,,,,,"Forecast of customers lost, for churn analysis and retention planning."
+FACTACCOUNTSNAPSHOT_FINAL,open_date,TIMESTAMP WITHOUT TIME ZONE,,,,,"Date when the account was opened, tracking the start of the account lifecycle."
+FACTACCOUNTSNAPSHOT_FINAL,relationship_start_date,TIMESTAMP WITHOUT TIME ZONE,,,,,"Date when the customer relationship began, for longevity and relationship management."
+FACTACCOUNTSNAPSHOT_FINAL,flag_extendedpaymentterms,CHARACTER VARYING,,,,,"Flag for extended payment terms, indicating flexible payment options for customers."
+FACTACCOUNTSNAPSHOT_FINAL,flag_unreliableinconsistentpayments,CHARACTER VARYING,,,,,"Flag for unreliable or inconsistent payments, highlighting high-risk accounts for intervention."
+FACTACCOUNTSNAPSHOT_FINAL,flag_suddenlygooutofbusiness,CHARACTER VARYING,,,,,"Flag indicating if the customer has suddenly gone out of business, for risk and recovery actions."
+FACTACCOUNTSNAPSHOT_FINAL,flag_traditionallyhigh_risksector_or_industry,CHARACTER VARYING,,,,,"Flag for customers in traditionally high-risk sectors, for enhanced due diligence and monitoring."
+FACTACCOUNTSNAPSHOT_FINAL,flag_patchycommunicationwithcustomer,CHARACTER VARYING,,,,,"Flag for patchy communication with the customer, signaling potential issues in customer engagement."
+FACTACCOUNTSNAPSHOT_FINAL,creditlimit_utilizationrate_recommendation,CHARACTER VARYING,,,,,"Recommendation on credit limit utilization rate, providing actionable insights for limit adjustments and customer advice."
+FACTACCOUNTSNAPSHOT_FINAL,dso_recommendation,CHARACTER VARYING,,,,,"Recommendation based on days sales outstanding, guiding decisions on credit extensions and collection strategies."
+FACTACCOUNTSNAPSHOT_FINAL,finalrecommendation_recommendation,CHARACTER VARYING,,,,,"Final recommendation on account actions, synthesizing various factors for comprehensive decision-making."
+FACTACCOUNTSNAPSHOT_FINAL,creditlimit_utilizationrate_newcard_recommendation,CHARACTER VARYING,,,,,"Recommendation for new card based on credit limit utilization rate, assessing eligibility for additional cards."
+FACTACCOUNTSNAPSHOT_FINAL,customer_spendingtypedistributionrecommendation,CHARACTER VARYING,,,,,"Recommendation on spending type distribution for the customer, tailoring suggestions to their spending habits."
+FACTACCOUNTSNAPSHOT_FINAL,finalrecommendation_newcard,CHARACTER VARYING,,,,,"Final recommendation for issuing a new card, based on customer profile and risk assessment."
+FACTACCOUNTSNAPSHOT_FINAL,campaignname,CHARACTER VARYING,,,,,"Name of the marketing campaign associated with the account, for tracking campaign effectiveness."
+FACTACCOUNTSNAPSHOT_FINAL,creditlimitdate,TIMESTAMP WITHOUT TIME ZONE,,,,,"Date of the last credit limit adjustment, for historical tracking of limit changes."
+FACTACCOUNTSNAPSHOT_FINAL,additionalrecommendation,CHARACTER VARYING,,,,,"Additional recommendations for the account, providing supplementary advice based on analysis."
+FACTACCOUNTSNAPSHOT_FINAL,campaign_startdate,DATE,,,,,"Start date of the campaign, for timing campaign impacts on account behavior."
+FACTACCOUNTSNAPSHOT_FINAL,campaign_enddate,DATE,,,,,"End date of the campaign, for evaluating campaign duration and results."
+FACTACCOUNTSNAPSHOT_FINAL,churnrate,NUMERIC,,,,,"Rate of customer churn, predicting and analyzing customer attrition for retention efforts."
+FACTACCOUNTSNAPSHOT_FINAL,load_date,DATE,,,,,"Date when the data was loaded, for data freshness and ETL auditing."
+FACTACCOUNTSNAPSHOT_FINAL,loaded_by,CHARACTER,,,,,"User or process that loaded the data, for traceability and data governance."
+FACTACCOUNTSNAPSHOT_FINAL,customer_earned_current_period,INTEGER,,,,,"Amount earned by the customer in the current period, for performance tracking and incentive calculations."
+FACTACCOUNTSNAPSHOT_FINAL,customer_lost_current_period,INTEGER,,,,,"Amount lost by the customer in the current period, for loss monitoring and financial impact assessment."
+FACTACCOUNTSNAPSHOT_FINAL,newfraudscore,NUMERIC,,,,,"Fraud score for the account, indicating the level of fraud risk based on recent activities, used for real-time fraud detection and prevention strategies."
+FACTACCOUNTSNAPSHOT_FINAL,age,NUMERIC,,,,,"Age of the customer or account in years, providing demographic insight for targeted marketing and risk profiling."
+FACTACCOUNTSNAPSHOT_FINAL,chargeoffbalance,NUMERIC,,,,,"Balance amount charged off as uncollectible, essential for loss provisioning and financial reporting on bad debts."
+FACTACCOUNTSNAPSHOT_FINAL,paymentduedate,TIMESTAMP WITHOUT TIME ZONE,,,,,"Date when the payment is due, critical for billing cycles and delinquency tracking."
+FACTACCOUNTSNAPSHOT_FINAL,balancecash,NUMERIC,,,,,"Cash balance available in the account, used for liquidity analysis and cash flow management."
+FACTACCOUNTSNAPSHOT_FINAL,external_status,CHARACTER VARYING,,,,,"Status of the account from an external system, facilitating integration and status synchronization."
+FACTACCOUNTSNAPSHOT_FINAL,flagvip,CHARACTER VARYING,,,,,"Flag indicating VIP status for the customer, for prioritized service and exclusive offers."
+FACTACCOUNTSNAPSHOT_FINAL,close_date,TIMESTAMP WITHOUT TIME ZONE,,,,,"Date when the account was closed, used for account lifecycle tracking and historical analysis."
+FACTACCOUNTSNAPSHOT_FINAL,asset,NUMERIC,,,,,"Total assets associated with the account, for net worth calculations and financial health assessment."
+FACTACCOUNTSNAPSHOT_FINAL,creditlimit_utilizationrate,NUMERIC,,,,,"Rate of credit limit utilization, indicating how much of the limit is used, key for credit risk and borrowing behavior analysis."
+FACTACCOUNTSNAPSHOT_FINAL,dso,NUMERIC,,,,,"Days sales outstanding, measuring the average number of days taken to collect payment, for cash flow and efficiency metrics."
+FACTACCOUNTSNAPSHOT_FINAL,dti,NUMERIC,,,,,"Debt-to-income ratio, assessing the customer's debt relative to income, crucial for lending eligibility and risk evaluation."
+FACTACCOUNTSNAPSHOT_FINAL,dti_recommendation,CHARACTER VARYING,,,,,"Recommendation based on debt-to-income ratio, providing guidance on credit decisions and financial advice."
+FACTACCOUNTSNAPSHOT_FINAL,banking_relationship_in_months,CHARACTER VARYING,,,,,"Duration of the banking relationship in months, used to gauge customer loyalty and tailor retention strategies."
+FACTACCOUNTSNAPSHOT_FINAL,banking_relationship_advice,CHARACTER VARYING,,,,,"Advice related to the banking relationship, offering insights or suggestions for improving customer engagement."
+FACTACCOUNTSNAPSHOT_FINAL,currentdelinquencybucket,CHARACTER VARYING,,,,,"Bucket or category for current delinquency status, for segmented risk assessment and reporting."
+FACTACCOUNTSNAPSHOT_FINAL,previousdelinquencybucket,CHARACTER VARYING,,,,,"Bucket for previous delinquency status, enabling trend analysis of payment behaviors over time."
+FACTACCOUNTSNAPSHOT_FINAL,cycleendingbalance,NUMERIC,,,,,"Balance at the end of the billing cycle, for cycle-specific financial summaries."
+FACTACCOUNTSNAPSHOT_FINAL,retention_forecast,NUMERIC,,,,,"Forecasted retention rate, predicting customer loyalty and informing retention campaigns."
+FACTACCOUNTSNAPSHOT_FINAL,cust_gained_forecast,NUMERIC,,,,,"Forecast of customers gained, for projecting growth and acquisition success."
+FACTACCOUNTSNAPSHOT_FINAL,cust_lost_forecast,NUMERIC,,,,,"Forecast of customers lost, for churn analysis and retention planning."
+FACTACCOUNTSNAPSHOT_FINAL,open_date,TIMESTAMP WITHOUT TIME ZONE,,,,,"Date when the account was opened, tracking the start of the account lifecycle."
+FACTACCOUNTSNAPSHOT_FINAL,relationship_start_date,TIMESTAMP WITHOUT TIME ZONE,,,,,"Date when the customer relationship began, for longevity and relationship management."
+FACTACCOUNTSNAPSHOT_FINAL,flag_extendedpaymentterms,CHARACTER VARYING,,,,,"Flag for extended payment terms, indicating flexible payment options for customers."
+FACTACCOUNTSNAPSHOT_FINAL,flag_unreliableinconsistentpayments,CHARACTER VARYING,,,,,"Flag for unreliable or inconsistent payments, highlighting high-risk accounts for intervention."
+FACTACCOUNTSNAPSHOT_FINAL,flag_suddenlygooutofbusiness,CHARACTER VARYING,,,,,"Flag indicating if the customer has suddenly gone out of business, for risk and recovery actions."
+FACTACCOUNTSNAPSHOT_FINAL,flag_traditionallyhigh_risksector_or_industry,CHARACTER VARYING,,,,,"Flag for customers in traditionally high-risk sectors, for enhanced due diligence and monitoring."
+FACTACCOUNTSNAPSHOT_FINAL,flag_patchycommunicationwithcustomer,CHARACTER VARYING,,,,,"Flag for patchy communication with the customer, signaling potential issues in customer engagement."
+FACTACCOUNTSNAPSHOT_FINAL,creditlimit_utilizationrate_recommendation,CHARACTER VARYING,,,,,"Recommendation on credit limit utilization rate, providing actionable insights for limit adjustments and customer advice."
+FACTACCOUNTSNAPSHOT_FINAL,dso_recommendation,CHARACTER VARYING,,,,,"Recommendation based on days sales outstanding, guiding decisions on credit extensions and collection strategies."
+FACTACCOUNTSNAPSHOT_FINAL,finalrecommendation_recommendation,CHARACTER VARYING,,,,,"Final recommendation on account actions, synthesizing various factors for comprehensive decision-making."
+FACTACCOUNTSNAPSHOT_FINAL,creditlimit_utilizationrate_newcard_recommendation,CHARACTER VARYING,,,,,"Recommendation for new card based on credit limit utilization rate, assessing eligibility for additional cards."
+FACTACCOUNTSNAPSHOT_FINAL,customer_spendingtypedistributionrecommendation,CHARACTER VARYING,,,,,"Recommendation on spending type distribution for the customer, tailoring suggestions to their spending habits."
+FACTACCOUNTSNAPSHOT_FINAL,finalrecommendation_newcard,CHARACTER VARYING,,,,,"Final recommendation for issuing a new card, based on customer profile and risk assessment."
+FACTACCOUNTSNAPSHOT_FINAL,campaignname,CHARACTER VARYING,,,,,"Name of the marketing campaign associated with the account, for tracking campaign effectiveness."
+FACTACCOUNTSNAPSHOT_FINAL,creditlimitdate,TIMESTAMP WITHOUT TIME ZONE,,,,,"Date of the last credit limit adjustment, for historical tracking of limit changes."
+FACTACCOUNTSNAPSHOT_FINAL,additionalrecommendation,CHARACTER VARYING,,,,,"Additional recommendations for the account, providing supplementary advice based on analysis."
+FACTACCOUNTSNAPSHOT_FINAL,campaign_startdate,DATE,,,,,"Start date of the campaign, for timing campaign impacts on account behavior."
+FACTACCOUNTSNAPSHOT_FINAL,campaign_enddate,DATE,,,,,"End date of the campaign, for evaluating campaign duration and results."
+FACTACCOUNTSNAPSHOT_FINAL,churnrate,NUMERIC,,,,,"Rate of customer churn, predicting and analyzing customer attrition for retention efforts."
+FACTACCOUNTSNAPSHOT_FINAL,customer_earned_current_period,INTEGER,,,,,"Number of new Customers in the current period, for performance tracking and incentive calculations."
+FACTACCOUNTSNAPSHOT_FINAL,customer_lost_current_period,INTEGER,,,,,"number of customers lost in the current period, for loss monitoring and financial impact assessment."
+FACTACCOUNTSNAPSHOT_FINAL,LOAD_DATE,TIMESTAMP_NTZ,,,,,Current timestamp
+FACTACCOUNTSNAPSHOT_FINAL,LOADED_BY,TEXT,,,,,Current user 
+DIMACCOUNTBEHAVIOR,PERIODID,NUMBER,YES,,,,"component Key Column for DIMACCOUNTBEHAVIOR table, PeriodID identifies the Date in the format YYYYMM"
+DIMACCOUNTBEHAVIOR,ACCOUNTBEHAVIORKEY,NUMBER,YES,,,,Component Key Column to uniquely identify each 'Account Behaviour' in the dataset. Is used to Join with ACCOUNTBEHAVIORKEY in Fact Table.
+DIMACCOUNTBEHAVIOR,ACCOUNTBEHAVIORSEGMENT,NUMBER,,,,,"ACCOUNTBEHAVIORSEGMENT Categorizes accounts into behavior segments such as ""active,"" ""inactive,"" or ""dormant,"" facilitating behavioral analysis."
+DIMACCOUNTBEHAVIOR,ACCOUNTBEHAVIORSEGMENTDESCRIPTION,VARCHAR,,,,,"Provides a detailed explanation of the account behavior segment, clarifying the meaning of each category (e.g., ""active"" means recent transactions)."
+DIMACCOUNTBEHAVIOR,ACTIVEFLAG,NUMBER,,,,,"Boolean indicator (e.g., 1/0 or true/false) showing whether the account behavior is currently active (1/true) or inactive (0/false)."
+DIMACCOUNTBEHAVIOR,ACTIVEFLAGDESCRIPTION,VARCHAR,,,,,"Describes the significance of the ACTIVEFLAG, explaining what active or inactive status implies regarding account activity.
+"
+DIMACCOUNTBEHAVIOR,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMACCOUNTBEHAVIOR,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMACCOUNTINFO,PERIODID,NUMBER,YES,NO,,,"component Key Column for DimProduct table, PeriodID identifies the Date in the format YYYYMM"
+DIMACCOUNTINFO,JOINTACCOUNTFLAGKEY,NUMBER,YES,NO,,,Component Key Column to uniquely identify each Joint Account in the dataset. Is used to Join with JOINTACCOUNTFLAGKEY in Fact Table.
+DIMACCOUNTINFO,JOINTACCOUNTFLAG,VARCHAR,,,,,"Indicates if the account is a joint account: ""Y"" for Yes (jointly held by multiple individuals), ""N"" for No (single ownership)."
+DIMACCOUNTINFO,JOINTACCOUNTFLAGDESCRIPTION,VARCHAR,,,,,"Describes account ownership status, such as ""jointly held,"" ""solo,"" or ""missing/unknown,"" providing insights into account ownership.
+"
+DIMACCOUNTINFO,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMACCOUNTINFO,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+FORECAST_PREDICTIVE_PRODUCT,forecast_period,numeric,YES,,,,
+FORECAST_PREDICTIVE_PRODUCT,reportingperiod,numeric,YES,,,,ReportingPeriodKey in forecast_predictive_product Table is a component key column which identifies the Cycle Date(YYYYMM) for which the forecast has been calculated and forms a Composite Key with other Key Columns in the  fact table.
+FORECAST_PREDICTIVE_PRODUCT,year,numeric,NO,,,,"Year of Predicted value, it is the part of reportingperiod"
+FORECAST_PREDICTIVE_PRODUCT,month,VARCHAR,NO,,,,"month of predicted value, it is the part of reportingperiod"
+FORECAST_PREDICTIVE_PRODUCT,product,VARCHAR,YES,,,,"Provides contextual names for the various product segment, denoting the criteria used to assign products to each segment."
+FORECAST_PREDICTIVE_PRODUCT,predictiveproductvolume,numeric,,,,,
+FORECAST_PREDICTIVE_PRODUCT,predictiveproductrevenue,numeric,,,,,
+FORECAST_PREDICTIVE_PRODUCT,id,bigint,,,,,Unique Autoincrement column used for Calculations
+FORECAST_PREDICTIVE_PRODUCT,prodvol_linear_trend,numeric,,,,,
+FORECAST_PREDICTIVE_PRODUCT,prodvol_seasonal_trend,numeric,,,,,
+FORECAST_PREDICTIVE_PRODUCT,prodrevenue_seasonal_trend,numeric,,,,,
+FORECAST_PREDICTIVE_PRODUCT,prodrevenue_linear_trend,numeric,,,,,
+DIMDELINQUENCY,periodid,NUMERIC,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,"component Key Column for DimDelinquency table, PeriodID identifies the Date in the format YYYYMM"
+DIMDELINQUENCY,delinquencykey,NUMERIC,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,delinquencykey,Component Key Column to uniquely identify each Value in the dataset. Is used to Join with delinquencykey in Fact Table.
+DIMDELINQUENCY,currentdelinquencybucket,NUMERIC,NO,NO,,,A numeric code categorizing the account's current level of payment delinquency.
+DIMDELINQUENCY,currentdelinquencybucketdescription,VARCHAR,NO,NO,,,"A text description of the current delinquency bucket code for human readability (e.g., 30 to 59 days past due)."
+DIMDELINQUENCY,previousdelinquencybucket,NUMERIC,NO,NO,,,"The numeric code for the account's prior delinquency level, useful for tracking changes over time."
+DIMDELINQUENCY,previousdelinquencybucketdescription,VARCHAR,NO,NO,,,"A text description of the previous delinquency bucket code, providing historical context."
+DIMDELINQUENCY,load_date,TIMESTAMP,NO,NO,,,"The timestamp for when the record was loaded into the data warehouse, indicating data freshness."
+DIMDELINQUENCY,loaded_by,VARCHAR,NO,NO,,,"The user or process that loaded the data, used for auditing and traceability."
+DIMEXTERNALSTATUS,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,"component Key Column for DIMEXTERNALSTATUS table, PeriodID identifies the Date in the format YYYYMM"
+DIMEXTERNALSTATUS,EXTERNALSTATUSKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,EXTERNALSTATUSKEY,Component Key Column to uniquely identify each External Status Value in the dataset. Is used to Join with EXTERNALSTATUSKEY in Fact Table.
+DIMEXTERNALSTATUS,EXTERNAL_STATUS,VARCHAR,NO,NO,,," This field indicates the classification of an account or transaction based on external criteria, such as credit status or risk level. It helps organizations assess the impact of external factors on their accounts and make informed decisions."
+DIMEXTERNALSTATUS,EXTERNAL_STATUS_VALUE,VARCHAR,NO,NO,,," A descriptive value associated with the external status, providing additional context or detail about the classification. This value can include specific ratings or conditions that influence account management strategies."
+DIMEXTERNALSTATUS,LOAD_DATE,TIMESTAMP_NTZ,NO,NO,,,system date when the data was loaded
+DIMEXTERNALSTATUS,LOADED_BY,VARCHAR,NO,NO,,,user id of the person responsible for loading data
+DIMDECILE,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,"component Key Column for DIMDECILE table, PeriodID identifies the Date in the format YYYYMM"
+DIMDECILE,DECILEKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,DECILEKEY,Component Key Column to uniquely identify each Decile Value (Revenue Decile and Prodit Decile)in the dataset. Is used to Join with DECILEKEY in Fact Table.
+DIMDECILE,PROFITDECILESEGMENT,NUMBER,NO,NO,,,"PROFITDECILESEGMENT field represents the classification of entities into profit deciles, which are groups formed based on their profit levels. Each segment corresponds to a range of profits, facilitating the analysis of profitability trends and performance across different segments."
+DIMDECILE,PROFITDECILESEGMENTDESCRIPTION,VARCHAR,NO,NO,,,"PROFITDECILESEGMENTDESCRIPTION is a textual description that provides context for the profit decile segment. It explains the criteria or characteristics that define the segment, helping users understand the specific profit range and its implications for analysis."
+DIMDECILE,REVENUEDECILESEGMENT,NUMBER,NO,NO,,," Similar to PROFITDECILESEGMENT, this field categorizes entities based on their revenue levels into ten segments. This classification allows for the assessment of revenue distribution and performance across different revenue brackets."
+DIMDECILE,REVENUEDECILESEGMENTDESCRIPTION,VARCHAR,NO,NO,,," A description that outlines the parameters of the revenue decile segment. It details the revenue thresholds that define each segment, aiding in the interpretation of revenue-related data and trends."
+DIMDECILE,LOAD_DATE,TIMESTAMP_NTZ,NO,NO,,,system date when the data was loaded
+DIMDECILE,LOADED_BY,VARCHAR,NO,NO,,,user id of the person responsible for loading data
+DIMSTATUS,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,"component Key Column for DIMSTATUS table, PeriodID identifies the Date in the format YYYYMM"
+DIMSTATUS,STATUSKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,STATUSKEY,Component Key Column to uniquely identify each Status Value. Is used to Join with DECILEKEY in Fact Table.
+DIMSTATUS,ACCOUNTSTATUS,VARCHAR,NO,NO,,," Represents the current status of an account, such as active, inactive, or closed. This field is important for understanding the lifecycle of accounts."
+DIMSTATUS,ACCOUNTSTATUSDESCRIPTION,VARCHAR,NO,NO,,," A description that provides context for the account status, detailing the implications of each status classification."
+DIMSTATUS,LOAD_DATE,TIMESTAMP_NTZ,NO,NO,,,system date when the data was loaded
+DIMSTATUS,LOADED_BY,VARCHAR,NO,NO,,,user id of the person responsible for loading data
+DIMUPC8PRODUCT,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMUPC8PRODUCT,UPC8_PRODUCTKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,UPC8_PRODUCTKEY, A unique identifier for each UPC8 product record. This key is essential for tracking and managing products identified by their Universal Product Code (UPC.
+DIMUPC8PRODUCT,UPC8_PRODUCTCODE,VARCHAR,NO,NO,,, Represents the Universal Product Code (UPC associated with the product. This field is used for identifying products in retail and inventory systems.
+DIMUPC8PRODUCT,UPC8_PRODUCTDESCRIPTION,VARCHAR,NO,NO,,," A description that provides context for the UPC8 product, detailing its features and characteristics."
+DIMUPC8PRODUCT,LOAD_DATE,TIMESTAMP_NTZ,NO,NO,,,system date when the data was loaded
+DIMUPC8PRODUCT,LOADED_BY,VARCHAR,NO,NO,,,user id of the person responsible for loading data
+DIMUPC9AFFINITY,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMUPC9AFFINITY,UPC9_AFFINITYKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,UPC9_AFFINITYKEY, A unique identifier for each UPC9 affinity record. This key is essential for tracking and managing products or services associated with affinity programs.
+DIMUPC9AFFINITY,UPC9_AFFINITYCODE,VARCHAR,NO,NO,,, Represents the affinity code associated with the product or service. This field is used for identifying products linked to specific affinity groups.
+DIMUPC9AFFINITY,UPC9_AFFINITYDESCRIPTION,VARCHAR,NO,NO,,," A description that provides context for the UPC9 affinity, detailing the characteristics and benefits of the affinity program."
+DIMUPC9AFFINITY,LOAD_DATE,TIMESTAMP_NTZ,NO,NO,,,system date when the data was loaded
+DIMUPC9AFFINITY,LOADED_BY,VARCHAR,NO,NO,,,user id of the person responsible for loading data
+DIMWALLET,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMWALLET,WALLETKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,WALLETKEY, A unique identifier for each wallet record. This key is essential for tracking and managing digital wallets associated with customer accounts.
+DIMWALLET,MOBILEWALLETACTIVATEDSEGMENT,VARCHAR,NO,NO,,, Represents the classification of customers based on whether they have activated mobile wallet features. This segmentation helps in understanding customer engagement with mobile payment options.
+DIMWALLET,MOBILEWALLETACTIVATEDFLAG,VARCHAR,NO,NO,,, A flag indicating whether the mobile wallet feature has been activated for a customer. This field is important for assessing the adoption of mobile payment technologies.
+DIMWALLET,PAYMENTINSTRUMENTSEGMENT,VARCHAR,NO,NO,,," Represents the classification of payment instruments used by customers, such as credit cards, debit cards, or digital wallets. This segmentation aids in analyzing payment preferences."
+DIMWALLET,PAYMENTINSTRUMENT,VARCHAR,NO,NO,,, Indicates the specific payment instrument used for transactions. This field is important for understanding customer payment behavior and preferences.
+DIMWALLET,CASE1_TEMP,VARCHAR,NO,NO,,, A temporary field used for storing intermediate data or calculations related to specific cases or transactions. This field may be used for processing or analysis purposes.
+DIMWALLET,LOAD_DATE,TIMESTAMP_NTZ,NO,NO,,, A unique identifier for each customer in the dataset. This key is essential for tracking customer-specific information and linking related records.
+DIMWALLET,LOADED_BY,VARCHAR,NO,NO,,, Represents the state associated with the customer or account. This field is important for geographic analysis and understanding regional trends.
+DIMPROFITSEGMENT,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMPROFITSEGMENT,PROFITSEGMENTKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,PROFITSEGMENTKEY, A unique identifier for each profit segment record. This key is essential for tracking and analyzing profitability across different segments.
+DIMPROFITSEGMENT,PROFITSEGMENT,VARCHAR,,,,, Represents the classification of entities based on their profit levels. This segmentation helps in assessing profitability trends and performance across different segments.
+DIMPROFITSEGMENT,PROFITSEGMENTDESCRIPTION,VARCHAR,,,,," A description that provides context for the profit segment, detailing the criteria or characteristics that define each segment."
+DIMPROFITSEGMENT,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMPROFITSEGMENT,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMPURCHASEBEHAVIOR,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMPURCHASEBEHAVIOR,PURCHASEBEHAVIORKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,PURCHASEBEHAVIORKEY, A unique identifier for each purchase behavior record. This key is essential for tracking and analyzing customer purchasing patterns over time.
+DIMPURCHASEBEHAVIOR,PURCHASEVOLUMESEGMENT,NUMBER,,,,," Represents the classification of customers based on their purchase volume, such as high-volume or low-volume purchasers. This segmentation aids in understanding customer behavior and financial health."
+DIMPURCHASEBEHAVIOR,PURCHASEVOLUMESEGMENTDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the purchase volume segment, providing clarity on how customers are categorized based on their purchasing activity."
+DIMPURCHASEBEHAVIOR,PURCHASEACTIVEFLAG,VARCHAR,,,,, A flag indicating whether a customer is currently active in making purchases. This field is important for assessing customer engagement and spending behavior.
+DIMPURCHASEBEHAVIOR,PURCHASEACTIVEFLAGDESCRIPTION,VARCHAR,,,,," A description that explains the significance of the purchase active flag, detailing the conditions under which a customer is considered active."
+DIMPURCHASEBEHAVIOR,CASHADVANCEVOLUMESEGMENT,NUMBER,,,,, Represents the classification of customers based on their cash advance volume. This segmentation helps in analyzing the usage of cash advances among customers.
+DIMPURCHASEBEHAVIOR,CASHADVANCEVOLUMESEGMENTDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the cash advance volume segment, providing clarity on how customers are categorized based on their cash advance activity."
+DIMPURCHASEBEHAVIOR,CASHADVANCEACTIVEFLAG,VARCHAR,,,,, A flag indicating whether a customer is currently active in taking cash advances. This field is important for assessing customer engagement with cash advance features.
+DIMPURCHASEBEHAVIOR,CASHADVANCEACTIVEFLAGDESCRIPTION,VARCHAR,,,,," A description that explains the significance of the cash advance active flag, detailing the conditions under which a customer is considered active in cash advances."
+DIMPURCHASEBEHAVIOR,BTVOLUMESEGMENT,NUMBER,,,,, Represents the classification of customers based on their balance transfer volume. This segmentation helps in analyzing the usage of balance transfer features among customers.
+DIMPURCHASEBEHAVIOR,BTVOLUMESEGMENTDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the balance transfer volume segment, providing clarity on how customers are categorized based on their balance transfer activity."
+DIMPURCHASEBEHAVIOR,BTACTIVEFLAG,VARCHAR,,,,, A flag indicating whether a customer is currently active in making balance transfers. This field is important for assessing customer engagement with balance transfer features.
+DIMPURCHASEBEHAVIOR,BTACTIVEFLAGDESCRIPTION,VARCHAR,,,,," A description that explains the significance of the balance transfer active flag, detailing the conditions under which a customer is considered active in balance transfers."
+DIMPURCHASEBEHAVIOR,DEBITACTIVEFLAG,VARCHAR,,,,, A flag indicating whether a customer is currently active in using debit features. This field is important for assessing customer engagement with debit transactions.
+DIMPURCHASEBEHAVIOR,DEBITACTIVEFLAGDESCRIPTION,VARCHAR,,,,," A description that explains the significance of the debit active flag, detailing the conditions under which a customer is considered active in debit transactions."
+DIMPURCHASEBEHAVIOR,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMPURCHASEBEHAVIOR,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMRAWPRODUCT,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMRAWPRODUCT,SPAKEY,VARCHAR,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,SPAKEY, A unique identifier for each record related to a specific service or product attribute. This key is essential for tracking and managing service-related data.
+DIMRAWPRODUCT,SYSTEM,VARCHAR,,,,," Represents the system associated with the record, indicating the platform or application used for processing transactions or managing accounts."
+DIMRAWPRODUCT,PRIN,VARCHAR,,,,, Represents the principal amount associated with a loan or credit account. This field is important for understanding the total amount borrowed or owed.
+DIMRAWPRODUCT,AGENT,VARCHAR,,,,, Indicates the agent or representative associated with the account or transaction. This field helps in tracking customer interactions and service requests.
+DIMRAWPRODUCT,BONUS_STRATEGY,VARCHAR,,,,, Represents the strategy used for awarding bonuses or incentives to customers. This field is important for understanding promotional efforts and customer engagement tactics.
+DIMRAWPRODUCT,SYSTEMDESCRIPTION,VARCHAR,,,,," A description that provides context for the system associated with the record, detailing its purpose and functionality."
+DIMRAWPRODUCT,ENTITY,VARCHAR,,,,," Represents the entity associated with the record, which could be a customer, account, or organization. This field is important for linking data to specific entities within the dataset."
+DIMRAWPRODUCT,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMRAWPRODUCT,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMREPRICINGINFORMATION,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMREPRICINGINFORMATION,REPRICINGKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,REPRICINGKEY, A unique identifier for each repricing record. This key is essential for tracking changes in pricing structures over time.
+DIMREPRICINGINFORMATION,APRDECREASEFLAG,VARCHAR,,,,, A flag indicating whether there has been a decrease in the Annual Percentage Rate (APR for a product or account. This field is important for assessing changes in borrowing costs.
+DIMREPRICINGINFORMATION,APRDECREASEFLAGDESCRIPTION,VARCHAR,,,,," A description that explains the significance of the APR decrease flag, detailing the conditions under which the flag is set."
+DIMREPRICINGINFORMATION,APRINCREASEFLAG,VARCHAR,,,,, A flag indicating whether there has been an increase in the Annual Percentage Rate (APR for a product or account. This field is important for understanding changes in borrowing costs.
+DIMREPRICINGINFORMATION,APRINCREASEFLAGDESCRIPTION,VARCHAR,,,,," A description that explains the significance of the APR increase flag, detailing the conditions under which the flag is set."
+DIMREPRICINGINFORMATION,APRINCREASEREASONSEGMENT,NUMBER,,,,, Represents the classification of reasons for an increase in the APR. This field helps in understanding the factors that influence changes in interest rates.
+DIMREPRICINGINFORMATION,APRINCREASEREASONSEGMENTDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the APR increase reason segment, providing clarity on the factors leading to rate changes."
+DIMREPRICINGINFORMATION,APRDELTASEGMENT,NUMBER,,,,," Represents the classification of changes in the APR, indicating the magnitude of the change. This field is important for assessing the impact of rate adjustments."
+DIMREPRICINGINFORMATION,APRDELTASEGMENTDESCRIPTION,VARCHAR,,,,," A description that provides context for the APR delta segment, detailing the significance of the changes in interest rates."
+DIMREPRICINGINFORMATION,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMREPRICINGINFORMATION,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMRISK,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMRISK,RISKKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,RISKKEY, A unique identifier for each risk record. This key is essential for tracking and managing risk assessments associated with accounts or transactions.
+DIMRISK,ORIGINATIONRISKSCORESEGMENT,NUMBER,,,,, Represents the classification of risk scores associated with account origination. This segmentation helps in assessing the risk level of new accounts.
+DIMRISK,ORIGINATIONRISKSCOREDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the origination risk score segment, providing clarity on how risk levels are categorized."
+DIMRISK,RISKSCORETHISCYCLESEGMENT,NUMBER,,,,, Represents the classification of risk scores for the current cycle. This field is important for understanding the risk profile of accounts during a specific time frame.
+DIMRISK,RISKSCORETHISCYCLEDESCRIPTION,VARCHAR,,,,," A description that provides context for the risk score for the current cycle, detailing the significance of the score in assessing account risk."
+DIMRISK,ORIGINATIONRISKSCORELEVEL1SEGMENT,NUMBER,,,,, Represents the classification of the first level of risk scores associated with account origination. This segmentation helps in assessing the risk level of new accounts at a granular level.
+DIMRISK,ORIGINATIONRISKSCORELEVEL1DESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the first level of origination risk score segment, providing clarity on how risk levels are categorized."
+DIMRISK,RISKSCORETHISCYCLELEVEL1SEGMENT,NUMBER,,,,, Represents the classification of the first level of risk scores for the current cycle. This field is important for understanding the risk profile of accounts during a specific time frame at a granular level.
+DIMRISK,RISKSCORETHISCYCLELEVEL1DESCRIPTION,VARCHAR,,,,," A description that provides context for the first level risk score for the current cycle, detailing the significance of the score in assessing account risk."
+DIMRISK,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMRISK,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMBALANCE,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMBALANCE,BALANCEKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,BALANCEKEY,This column serves as a unique identifier for each balance record within the database. It is essential for distinguishing individual balance entries and facilitating efficient data retrieval and management.
+DIMBALANCE,BALANCESEGMENT,NUMBER,,,,,"This column categorizes account balances into distinct segments based on predefined criteria. The segmentation allows for the classification of balances into groups that facilitate targeted analysis and reporting, enabling organizations to assess financial performance across various account categories."
+DIMBALANCE,BALANCESEGMENTDESCRIPTION,VARCHAR,,,,,"This column provides a detailed narrative that explains the criteria and implications associated with each balance segment. It offers context for understanding the significance of the segment classification, thereby enhancing the interpretability of balance data for analytical purposes."
+DIMBALANCE,BALANCEACTIVEFLAG,VARCHAR,,,,,"This column serves as a binary indicator that denotes the active status of the balance record. It indicates whether the balance is currently being utilized or monitored, which is essential for identifying accounts that require attention or are subject to specific management practices."
+DIMBALANCE,BALANCEACTIVEFLAGDESCRIPTION,VARCHAR,,,,,"This column provides a comprehensive explanation of the implications associated with the balance active flag. It clarifies what constitutes an active or inactive status, thereby aiding stakeholders in understanding the operational relevance of the balance record."
+DIMBALANCE,CREDITLIMITUTILIZATIONSEGMENT,NUMBER,,,,,"This column categorizes the utilization of available credit limits into distinct segments. This segmentation is critical for assessing credit risk and understanding customer behavior regarding credit usage, allowing organizations to implement appropriate risk management strategies."
+DIMBALANCE,CREDITLIMITUTILIZATIONSEGMENTDESCRIPTION,VARCHAR,,,,,"This column offers a detailed description of the criteria and implications associated with each credit limit utilization segment. It provides context for interpreting the utilization data, thereby enhancing the understanding of customer credit behavior and informing decision-making processes related to credit management."
+DIMBALANCE,OCLFLAG,VARCHAR,,,,,"This column serves as a binary indicator that identifies whether an account is currently in an ""Over Credit Limit"" (OCL status. A value of ""Y"" (for Yes indicates that the account has surpassed its credit limit, while a value of ""N"" (for No signifies compliance with the established credit limit."
+DIMBALANCE,OCLFLAGDESCRIPTION,VARCHAR,,,,,"This column provides a detailed explanation of the implications of the OCL flag. For instance, an ""OCL"" designation may indicate that the account is subject to additional fees, restrictions, or heightened scrutiny due to its over-limit status, thereby necessitating appropriate risk management actions."
+DIMBALANCE,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMBALANCE,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMBALANCETRANSFER,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMBALANCETRANSFER,BALANCETRANSFERKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,BALANCETRANSFERKEY,"This column serves as a unique identifier for each balance transfer record within the database. It is essential for distinguishing individual balance transfer entries, facilitating efficient data management, and enabling accurate tracking of transfer activities."
+DIMBALANCETRANSFER,BTFLAG,VARCHAR,,,,,"This column is a binary indicator that denotes the status of a balance transfer. It typically indicates whether a balance transfer has occurred or is applicable for a particular account. The flag may contain values such as ""Y"" (for Yes to signify that a balance transfer is present, or ""N"" (for No to indicate its absence."
+DIMBALANCETRANSFER,BTFLAGDESCRIPTION,VARCHAR,,,,,"This column provides a detailed description of the implications associated with the balance transfer flag. It clarifies what the presence or absence of a balance transfer entails for the account, offering context for understanding the account's financial activities and potential impacts on credit management."
+DIMBALANCETRANSFER,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMBALANCETRANSFER,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMCHARGEOFF,CHARGEOFFKEY,NUMBER,,,,,"This column serves as a unique identifier for each charge-off record within the database. It is crucial for distinguishing individual charge-off entries, facilitating efficient data management, and enabling accurate tracking of charge-off activities associated with accounts."
+DIMCHARGEOFF,CHARGEOFFRATE,NUMBER,,,,,"This column represents the percentage rate at which accounts are charged off as uncollectible. The charge-off rate is a critical metric for assessing the financial health of a portfolio, as it indicates the proportion of outstanding debts that are deemed unlikely to be recovered. This rate is essential for risk management and financial forecasting."
+DIMCHARGEOFF,MONTHSONBOOKS,NUMBER,,,,,This column indicates the number of months an account has been active or on the books before it is charged off. This metric provides insights into the aging of accounts and helps in analyzing trends related to account performance and delinquency. Understanding the duration accounts remain on the books before charge-off can inform strategies for collections and risk mitigation.
+DIMCHARGEOFF,PERIODID,NUMBER,,,,,6 digit number identifying the period in the format YYYYMM
+DIMCHARGEOFF,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMCHARGEOFF,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMCREDITLIMITINFORMATION,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMCREDITLIMITINFORMATION,CREDITLIMITINFORMATIONKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,CREDITLIMITINFORMATIONKEY,"This column serves as a unique identifier for each record of credit limit information within the database. It is essential for distinguishing individual entries, facilitating efficient data management, and enabling accurate tracking of credit limit details associated with accounts."
+DIMCREDITLIMITINFORMATION,CREDITLIMITSEGMENT,NUMBER,,,,,"This column categorizes credit limits into distinct segments based on predefined criteria, such as the amount of credit extended. This segmentation allows for the classification of credit limits into groups that facilitate targeted analysis and reporting, enabling organizations to assess credit risk and customer behavior effectively."
+DIMCREDITLIMITINFORMATION,CREDITLIMITSEGMENTDESCRIPTION,VARCHAR,,,,,"This column provides a detailed narrative that explains the criteria and implications associated with each credit limit segment. It offers context for understanding the significance of the segment classification, thereby enhancing the interpretability of credit limit data for analytical purposes."
+DIMCREDITLIMITINFORMATION,CLDFLAG,VARCHAR,,,,,"This column is a binary indicator that denotes the status of the credit limit, specifically whether the account is subject to a credit limit decrease. It is essential for monitoring changes in credit exposure and managing risk associated with customer accounts."
+DIMCREDITLIMITINFORMATION,CLDFLAGDESCRIPTION,VARCHAR,,,,,"This column provides a comprehensive explanation of the implications associated with the credit limit decrease flag. It clarifies what the presence or absence of a decrease entails for the account, offering context for understanding the account's credit management status and potential impacts on customer relationships."
+DIMCREDITLIMITINFORMATION,CLIFLAG,VARCHAR,,,,,"This column is a binary indicator that denotes whether the account is subject to a credit limit increase. It plays a crucial role in assessing credit risk and managing customer credit limits, allowing organizations to make informed decisions regarding credit extensions."
+DIMCREDITLIMITINFORMATION,CLIFLAGDESCRIPTION,VARCHAR,,,,,"This column provides a detailed description of the implications associated with the credit limit increase flag. It clarifies what the presence or absence of an increase entails for the account, thereby enhancing the understanding of credit management strategies and informing decision-making processes related to customer credit limits."
+DIMCREDITLIMITINFORMATION,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMCREDITLIMITINFORMATION,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMFEEINFORMATION,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMFEEINFORMATION,FEEKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,FEEKEY," A unique identifier for each fee record in the dataset. This key is essential for tracking various fees associated with accounts, such as service fees, late fees, or transaction fees, enabling accurate financial reporting."
+DIMFEEINFORMATION,FEEANNUALFLAG,VARCHAR,,,,," A flag indicating whether a particular fee is charged on an annual basis. This field helps in distinguishing between one-time fees and recurring fees, which is important for financial forecasting and budgeting."
+DIMFEEINFORMATION,FEEANNUALFLAGDESCRIPTION,VARCHAR,,,,," A description that explains the significance of the annual fee flag. It provides clarity on the conditions under which the fee is applied, aiding in customer communication and transparency."
+DIMFEEINFORMATION,FEEBALANCETRANSFERFLAG,VARCHAR,,,,," This flag indicates whether a fee is applicable to balance transfers. It is crucial for understanding the cost implications of transferring balances between accounts, particularly in credit card products."
+DIMFEEINFORMATION,FEEBALANCETRANSFERFLAGDESCRIPTION,VARCHAR,,,,," A description that outlines the conditions under which the balance transfer fee is applied. It helps customers understand potential charges associated with balance transfers, enhancing their decision-making."
+DIMFEEINFORMATION,FEECASHADVANCEFLAG,VARCHAR,,,,, A flag that indicates whether a fee is applicable for cash advances taken from a credit account. This field is important for assessing the costs associated with accessing cash through credit lines.
+DIMFEEINFORMATION,FEECASHADVANCEFLAGDESCRIPTION,VARCHAR,,,,," A description that explains the criteria for the cash advance fee flag. It provides customers with information about when and how this fee is incurred, promoting transparency in fee structures."
+DIMFEEINFORMATION,FEELATEFLAG,VARCHAR,,,,, A flag indicating whether a fee is charged for late payments. This field is essential for managing accounts and understanding the financial implications of missed payment deadlines.
+DIMFEEINFORMATION,FEELATEFLAGDESCRIPTION,VARCHAR,,,,, A description that details the conditions under which the late fee is applied. It helps customers understand the consequences of late payments and encourages timely account management.
+DIMFEEINFORMATION,FEENSFFLAG,VARCHAR,,,,, A flag that indicates whether a fee is charged for non-sufficient funds (NSF transactions. This field is critical for managing accounts that may incur fees due to insufficient funds during transactions.
+DIMFEEINFORMATION,FEENSFFLAGDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the NSF fee flag. It provides clarity on when this fee is applied, helping customers avoid situations that lead to additional charges."
+DIMFEEINFORMATION,FEEOVERLIMITFLAG,VARCHAR,,,,, A flag indicating whether a fee is charged for exceeding the credit limit on an account. This field is important for understanding the financial consequences of overspending.
+DIMFEEINFORMATION,FEEOVERLIMITFLAGDESCRIPTION,VARCHAR,,,,, A description that explains the conditions under which the over-limit fee is applied. It helps customers understand the risks associated with exceeding their credit limits.
+DIMFEEINFORMATION,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMFEEINFORMATION,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMORIGINALCREDITLIMITINFORMATION,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMORIGINALCREDITLIMITINFORMATION,ORIGINALCREDITLIMITINFORMATIONKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,ORIGINALCREDITLIMITINFORMATIONKEY, A unique identifier for each original credit limit information record. This key is essential for tracking the initial credit limits assigned to accounts.
+DIMORIGINALCREDITLIMITINFORMATION,ORIGINALCREDITLIMITSEGMENT,VARCHAR,,,,, Represents the classification of the original credit limit assigned to an account. This field helps in analyzing credit risk and exposure.
+DIMORIGINALCREDITLIMITINFORMATION,ORIGINALCREDITLIMITSEGMENTDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the original credit limit segment, providing clarity on how limits are categorized."
+DIMORIGINALCREDITLIMITINFORMATION,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMORIGINALCREDITLIMITINFORMATION,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMORIGINATIONCHANNEL,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMORIGINATIONCHANNEL,ORIGINATIONCHANNELKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,ORIGINATIONCHANNELKEY, A unique identifier for each origination channel record. This key is important for tracking the source through which accounts were opened.
+DIMORIGINATIONCHANNEL,ORIGINATIONCHANNELDESCRIPTION,VARCHAR,,,,," A description that provides context for the origination channel, detailing the methods or platforms used for account acquisition."
+DIMORIGINATIONCHANNEL,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMORIGINATIONCHANNEL,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMORIGINATIONCHARACTERISTICS,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMORIGINATIONCHARACTERISTICS,ORIGINATIONCHARACTERISTICSKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,ORIGINATIONCHARACTERISTICSKEY, A unique identifier for each origination characteristics record. This key is essential for tracking specific traits or attributes associated with account origination.
+DIMORIGINATIONCHARACTERISTICS,ORIGINATIONCHANNEL,NUMBER,,,,," Represents the channel through which an account was originated, such as online, in-branch, or through a third party. This field helps in analyzing the effectiveness of different acquisition strategies."
+DIMORIGINATIONCHARACTERISTICS,ORIGINATIONCHANNELDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the origination channel, providing clarity on how accounts are categorized based on their acquisition method."
+DIMORIGINATIONCHARACTERISTICS,ORIGINATIONQUARTER,NUMBER,,,,, Represents the quarter during which an account was originated. This field is useful for analyzing seasonal trends in account openings.
+DIMORIGINATIONCHARACTERISTICS,ORIGINATIONQUARTERDESCRIPTION,VARCHAR,,,,," A description that provides context for the origination quarter, detailing the significance of the quarterly classification."
+DIMORIGINATIONCHARACTERISTICS,ORIGINATIONYEAR,NUMBER,,,,, Represents the year during which an account was originated. This field is important for long-term trend analysis and understanding account growth over time.
+DIMORIGINATIONCHARACTERISTICS,ORIGINATIONYEARDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the origination year, providing clarity on how accounts are categorized based on their opening year."
+DIMORIGINATIONCHARACTERISTICS,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMORIGINATIONCHARACTERISTICS,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+DIMPAYMENTBEHAVIOR,PERIODID,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,reportingperiodkey,6 digit number identifying the period in the format YYYYMM
+DIMPAYMENTBEHAVIOR,PAYMENTBEHAVIORKEY,NUMBER,YES,NO,FACTACCOUNTSNAPSHOT_FINAL,PAYMENTBEHAVIORKEY, A unique identifier for each payment behavior record. This key is essential for tracking and analyzing customer payment patterns over time.
+DIMPAYMENTBEHAVIOR,PAYMENTBEHAVIORSEGMENT,NUMBER,,,,," Represents the classification of customers based on their payment behavior, such as timely payments or late payments. This segmentation helps in risk assessment and targeted marketing strategies."
+DIMPAYMENTBEHAVIOR,PAYMENTBEHAVIORSEGMENTDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the payment behavior segment, providing clarity on how customers are categorized based on their payment history."
+DIMPAYMENTBEHAVIOR,PAYMENTACTIVEFLAG,VARCHAR,,,,, A flag indicating whether a customer is currently active in making payments. This field is important for assessing customer engagement and payment reliability.
+DIMPAYMENTBEHAVIOR,PAYMENTACTIVEFLAGDESCRIPTION,VARCHAR,,,,," A description that explains the significance of the payment active flag, detailing the conditions under which a customer is considered active."
+DIMPAYMENTBEHAVIOR,PAYMENTRATESEGMENT,NUMBER,,,,," Represents the classification of customers based on their payment rates, such as high-frequency or low-frequency payers. This segmentation aids in understanding customer behavior and financial health."
+DIMPAYMENTBEHAVIOR,PAYMENTRATESEGMENTDESCRIPTION,VARCHAR,,,,," A description that outlines the criteria for the payment rate segment, providing clarity on how customers are categorized based on their payment frequency."
+DIMPAYMENTBEHAVIOR,LOAD_DATE,TIMESTAMP_NTZ,,,,,system date when the data was loaded
+DIMPAYMENTBEHAVIOR,LOADED_BY,VARCHAR,,,,,user id of the person responsible for loading data
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,

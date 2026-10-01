@@ -1,0 +1,7 @@
+Note: Run the below sql script in dbeaver to kill the existing connection of user from idle
+
+SELECT pg_terminate_backend(pid)
+FROM pg_stat_activity
+WHERE usename = 'developer_user'
+  AND state = 'idle'
+  AND pid <> pg_backend_pid();

@@ -1,0 +1,5 @@
+myenv/
+.env
+nlp
+.venv
+nohup.out
