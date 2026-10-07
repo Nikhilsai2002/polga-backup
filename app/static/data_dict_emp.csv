@@ -1,0 +1,7 @@
+Table Name,Business Name,Field Name,DATA_TYPE,is Primary Key,is Foreign Key,reference table,reference column,Description
+EMPLOYEE_DB,Employee Identifier,EMPLOYEEID,VARCHAR(10),YES,NO,,,Unique identifier assigned to each employee. Used as the primary key to uniquely identify employee records in the table.
+EMPLOYEE_DB,Employee Name,EMPLOYEENAME,VARCHAR(100),NO,NO,,,Full name of the employee. Used for reporting and employee identification.
+EMPLOYEE_DB,Department,DEPARTMENT,VARCHAR(50),NO,NO,,,Business department or functional area to which the employee belongs such as IT Finance HR Sales or Marketing.
+EMPLOYEE_DB,Job Title,JOBTITLE,VARCHAR(100),NO,NO,,,Official designation or role assigned to the employee within the organization.
+EMPLOYEE_DB,Joining Date,JOININGDATE,DATE,NO,NO,,,Date on which the employee joined the organization. Used for tenure analysis and workforce reporting.
+EMPLOYEE_DB,Salary,SALARY,DECIMAL(10,2),NO,NO,,,Current annual salary of the employee stored with two decimal precision. Used for compensation and payroll analysis.

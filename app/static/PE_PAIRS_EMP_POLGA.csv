@@ -1,0 +1,40 @@
+Dashboard,Tab Name,Graph Name,Query Number,Query Final,P. No,Prompt
+Employee Dashboard,Employee Overview,Employee List,Query 1,"SELECT * FROM Employee_db;",p0,Show me all employees.
+Employee Dashboard,Employee Overview,Employee List,Query 1,"SELECT * FROM Employee_db;",p1,List all employee records.
+Employee Dashboard,Employee Overview,Employee List,Query 1,"SELECT * FROM Employee_db;",p2,Display every employee in the database.
+
+Employee Dashboard,Department Analysis,IT Employees,Query 2,"SELECT * FROM Employee_db WHERE Department = 'IT';",p0,Show employees from the IT department.
+Employee Dashboard,Department Analysis,IT Employees,Query 2,"SELECT * FROM Employee_db WHERE Department = 'IT';",p1,List all employees in IT.
+Employee Dashboard,Department Analysis,IT Employees,Query 2,"SELECT * FROM Employee_db WHERE Department = 'IT';",p2,Which employees belong to the IT department?
+
+Employee Dashboard,Salary Analysis,High Salary Employees,Query 3,"SELECT EmployeeName, JobTitle, Salary FROM Employee_db WHERE Salary > 70000;",p0,Show employees earning more than 70000.
+Employee Dashboard,Salary Analysis,High Salary Employees,Query 3,"SELECT EmployeeName, JobTitle, Salary FROM Employee_db WHERE Salary > 70000;",p1,List high earning employees.
+Employee Dashboard,Salary Analysis,High Salary Employees,Query 3,"SELECT EmployeeName, JobTitle, Salary FROM Employee_db WHERE Salary > 70000;",p2,Who earns above 70000?
+
+Employee Dashboard,Salary Analysis,Salary Ranking,Query 4,"SELECT EmployeeName, Department, Salary FROM Employee_db ORDER BY Salary DESC;",p0,Rank employees by salary.
+Employee Dashboard,Salary Analysis,Salary Ranking,Query 4,"SELECT EmployeeName, Department, Salary FROM Employee_db ORDER BY Salary DESC;",p1,Show salaries in descending order.
+Employee Dashboard,Salary Analysis,Salary Ranking,Query 4,"SELECT EmployeeName, Department, Salary FROM Employee_db ORDER BY Salary DESC;",p2,List employees sorted by highest salary.
+
+Employee Dashboard,Employee Metrics,Employee Count,Query 5,"SELECT COUNT(*) AS TotalEmployees FROM Employee_db;",p0,How many employees are there?
+Employee Dashboard,Employee Metrics,Employee Count,Query 5,"SELECT COUNT(*) AS TotalEmployees FROM Employee_db;",p1,Count all employees.
+Employee Dashboard,Employee Metrics,Employee Count,Query 5,"SELECT COUNT(*) AS TotalEmployees FROM Employee_db;",p2,Show the total number of employees.
+
+Employee Dashboard,Department Analysis,Average Salary by Department,Query 6,"SELECT Department, AVG(Salary) AS AverageSalary FROM Employee_db GROUP BY Department;",p0,Show average salary by department.
+Employee Dashboard,Department Analysis,Average Salary by Department,Query 6,"SELECT Department, AVG(Salary) AS AverageSalary FROM Employee_db GROUP BY Department;",p1,Calculate department wise average salaries.
+Employee Dashboard,Department Analysis,Average Salary by Department,Query 6,"SELECT Department, AVG(Salary) AS AverageSalary FROM Employee_db GROUP BY Department;",p2,What is the average salary in each department?
+
+Employee Dashboard,Salary Analysis,Highest Paid Employee,Query 7,"SELECT * FROM Employee_db ORDER BY Salary DESC LIMIT 1;",p0,Show the highest paid employee.
+Employee Dashboard,Salary Analysis,Highest Paid Employee,Query 7,"SELECT * FROM Employee_db ORDER BY Salary DESC LIMIT 1;",p1,Which employee has the highest salary?
+Employee Dashboard,Salary Analysis,Highest Paid Employee,Query 7,"SELECT * FROM Employee_db ORDER BY Salary DESC LIMIT 1;",p2,Find the top paid employee.
+
+Employee Dashboard,Joining Trends,Recent Joinees,Query 8,"SELECT EmployeeName, JoiningDate FROM Employee_db WHERE JoiningDate > '2022-01-01';",p0,Show employees who joined after January 2022.
+Employee Dashboard,Joining Trends,Recent Joinees,Query 8,"SELECT EmployeeName, JoiningDate FROM Employee_db WHERE JoiningDate > '2022-01-01';",p1,List recent employees.
+Employee Dashboard,Joining Trends,Recent Joinees,Query 8,"SELECT EmployeeName, JoiningDate FROM Employee_db WHERE JoiningDate > '2022-01-01';",p2,Who joined after 2022?
+
+Employee Dashboard,Department Analysis,Headcount by Department,Query 9,"SELECT Department, COUNT(*) AS EmployeeCount FROM Employee_db GROUP BY Department ORDER BY EmployeeCount DESC;",p0,Count employees in each department.
+Employee Dashboard,Department Analysis,Headcount by Department,Query 9,"SELECT Department, COUNT(*) AS EmployeeCount FROM Employee_db GROUP BY Department ORDER BY EmployeeCount DESC;",p1,Show department wise employee count.
+Employee Dashboard,Department Analysis,Headcount by Department,Query 9,"SELECT Department, COUNT(*) AS EmployeeCount FROM Employee_db GROUP BY Department ORDER BY EmployeeCount DESC;",p2,How many employees are there in each department?
+
+Employee Dashboard,Department Analysis,High Pay Departments,Query 10,"SELECT Department, AVG(Salary) AS AvgSalary FROM Employee_db GROUP BY Department HAVING AVG(Salary) > 65000;",p0,Show departments with average salary above 65000.
+Employee Dashboard,Department Analysis,High Pay Departments,Query 10,"SELECT Department, AVG(Salary) AS AvgSalary FROM Employee_db GROUP BY Department HAVING AVG(Salary) > 65000;",p1,Find departments with high average salaries.
+Employee Dashboard,Department Analysis,High Pay Departments,Query 10,"SELECT Department, AVG(Salary) AS AvgSalary FROM Employee_db GROUP BY Department HAVING AVG(Salary) > 65000;",p2,Which departments have an average salary greater than 65000?

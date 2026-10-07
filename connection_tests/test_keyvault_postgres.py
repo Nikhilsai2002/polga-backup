@@ -1,7 +1,7 @@
 import psycopg2
 from psycopg2 import sql
 
-from azure.identity import InteractiveBrowserCredential
+from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
 
 
@@ -11,7 +11,7 @@ from azure.keyvault.secrets import SecretClient
 
 VAULT_URL = "https://paymatixkeyvault.vault.azure.net/"
 
-credential = InteractiveBrowserCredential()
+credential = DefaultAzureCredential()
 
 kv_client = SecretClient(
     vault_url=VAULT_URL,
@@ -29,6 +29,13 @@ print("Secrets fetched successfully from Key Vault")
 print(f"HOST: {HOST}")
 conn = None
 cursor = None
+
+print("HOST =", HOST)
+print("DATABASE =", DATABASE)
+print("USER =", USER)
+print("PORT =", PORT)
+
+print("Attempting PostgreSQL connection...")
 
 try:
     conn = psycopg2.connect(

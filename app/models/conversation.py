@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text, JSON,ForeignKey, func
 from sqlalchemy.dialects.postgresql import JSONB
-from app.core import Base
+from app.core.database import Base
+ 
 
 class Conversation(Base):
     __tablename__ = "conversation"

@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text, JSON, func
 from sqlalchemy.dialects.postgresql import JSONB
-from app.db import Base, SessionLocal
+from app.core.database import Base, SessionLocal
+
 import json
 
 class UserSession(Base):
